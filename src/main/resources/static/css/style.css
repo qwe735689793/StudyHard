@@ -1,0 +1,49 @@
+.container {
+    position: absolute;
+    left: 100px;
+    top: 150px;
+    padding: 30px 100px 10px;
+    width: 600px;
+}
+
+.box {
+    margin-top: 100px;
+    width: 100%;
+    height: 600px;
+    background: url(hr_login.png) no-repeat center;
+    padding-top: 30px;
+}
+
+.cnt {
+    width: 420px;
+    height: 440px;
+    background: #fff;
+    padding: 40px 40px 40px 40px;
+    margin-right: 40px;
+    float: right;
+
+}
+
+.row {
+    width: 500px;
+}
+
+#cnt_one {
+    color: #000;
+    font-size: 20px;
+    font-weight: 600;
+    padding-right: 180px;
+
+}
+
+.cnt_two {
+    margin: 10px;
+}
+
+.login-yonghu-input {
+    padding: 10px 10px 0px 10px;
+}
+
+#oimg {
+    padding-left: 30px;
+}
