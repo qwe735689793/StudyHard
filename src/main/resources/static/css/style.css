@@ -47,3 +47,8 @@
 #oimg {
     padding-left: 30px;
 }
+
+.required {
+    color: red;
+    font-weight: bold;
+}
