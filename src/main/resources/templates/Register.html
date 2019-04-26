@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <title>注册页面</title>
     <link href="webjars/bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet"/>
-    <script src="webjars/jquery/3.3.1-2/jquery.min.js"></script>
-    <script src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
     <link href="webjars/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet"/>
     <link charset="utf-8" href="css/style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div class="container">
-    <form action="http://wwww.baidu.com" class="">
+    <form>
         <div class="form-group has-feedback">
             <label for="username">用户名</label>
             <div class="input-group">
@@ -45,13 +44,36 @@
             </div>
         </div>
 
-        <div class="fo  rm-group">
+        <div class="form-group">
             <button class="form-control btn btn-primary" id="submit" type="submit">立即注册</button>
         </div>
 
     </form>
 </div>
+<script src="webjars/jquery/3.3.1-2/jquery.min.js"></script>
+<script src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+    $('#submit').click(function () {
+        var params = {
+            username: $('#username').val(),
+            password: $('#password').val()
+        };
+        $.ajax({
+            type:'POST',
+            url:'/checkUserName',
+            contentType:'application/json',
+            data: JSON.stringify(params),
+            success:function (result) {
+                alert('success').class("bg-danger");
+            },
+            error:function () {
+                alert('error');
+            }
+        })
+    })
 
+
+</script>
 
 </body>
 </html>
