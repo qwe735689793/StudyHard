@@ -24,10 +24,6 @@
 
 }
 
-.row {
-    width: 500px;
-}
-
 #cnt_one {
     color: #000;
     font-size: 20px;
@@ -51,4 +47,8 @@
 .required {
     color: red;
     font-weight: bold;
+}
+
+.table-style {
+    width: 700px;
 }
