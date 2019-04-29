@@ -44,11 +44,10 @@
     padding-left: 30px;
 }
 
+.table-style {
+    width: 1200px;
+}
 .required {
     color: red;
     font-weight: bold;
-}
-
-.table-style {
-    width: 700px;
 }

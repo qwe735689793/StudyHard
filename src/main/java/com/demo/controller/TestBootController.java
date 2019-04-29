@@ -58,4 +58,9 @@ public class TestBootController {
     public String getPslInformation(ModelMap map) {
         return "PslInformation";
     }
+
+    @RequestMapping("getMycourses")
+    public String getMycourses(ModelMap map) {
+        return "Mycourses";
+    }
 }
