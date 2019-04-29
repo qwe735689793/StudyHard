@@ -6,14 +6,15 @@
     <link href="webjars/bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet">
     <script src="webjars/jquery/3.3.1-2/jquery.min.js"></script>
     <script src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <link charset="utf-8" href="css/style.css" rel="stylesheet" type="text/css"/>
+    <link charset="utf-8" href="css/style.css" rel="stylesheet"/>
 </head>
 <body>
-<div class="container-fluid m-4 ">
+<div class="container-fluid">
     <div class="col-center-block">
+        <div class="col-8 m-auto">
         <form class="form-horizontal " role="form">
             <div class=" form-group row">
-                <label class="col-sm-1 control-label">学号/证件号<span class="required">*</span>
+                <label class="col-sm-2 control-label">学号/证件号<span class="required">*</span>
                 </label>
                 <div class="col-sm-6">
                     <input autocomplete="off" class="form-control" name="customernumber" placeholder="学号/证件号"
@@ -21,7 +22,7 @@
                 </div>
             </div>
             <div class="form-group row ">
-                <label class="col-sm-1 control-label">姓名<span class="required">*</span>
+                <label class="col-sm-2 control-label">姓名<span class="required">*</span>
                 </label>
                 <div class="col-sm-6">
                     <input autocomplete="off" class="form-control" name="name" placeholder="姓名"
@@ -31,7 +32,7 @@
                 </div>
             </div>
             <div class="form-group row ">
-                <label class="col-sm-1 control-label">所属学院</label>
+                <label class="col-sm-2 control-label">所属学院</label>
                 <div class="col-sm-6">
                     <select class="form-control" name="college">
                         <option selected>Choose...</option>
@@ -42,7 +43,7 @@
                 </div>
             </div>
             <div class="form-group row ">
-                <label class="col-sm-1 control-label">所属专业</label>
+                <label class="col-sm-2 control-label">所属专业</label>
                 <div class="col-sm-6">
                     <select class="form-control" name="major">
                         <option selected>请选择你的专业</option>
@@ -54,7 +55,7 @@
                 </div>
             </div>
             <div class="form-group row ">
-                <label class="col-sm-1 control-label">年级</label>
+                <label class="col-sm-2 control-label">年级</label>
                 <div class="col-sm-6">
                     <select class="form-control" name="grade">
                         <option selected>请选择你的年级</option>
@@ -66,7 +67,7 @@
                 </div>
             </div>
             <div class="form-group row ">
-                <label class="col-sm-1 control-label">班级</label>
+                <label class="col-sm-2 control-label">班级</label>
                 <div class="col-sm-6">
                     <select class="form-control" name="groupid">
                         <option selected>请选择你的班级</option>
@@ -77,19 +78,20 @@
                     <!--option selected 默认选择-->
                 </div>
             </div>
-            <div class="form-group row ">
-                <label class="col-sm-1 control-label">描述</label>
+            <div class="form-group row">
+                <label class="col-sm-2 control-label">描述</label>
                 <div class="col-sm-6">
                 <textarea class="form-control" name="note" placeholder="个人描述" rows="7">
 
                 </textarea></div>
             </div>
-            <button class="btn btn-success" type="submit">保存</button>
-            <button class="btn btn-info" type="submit">取消</button>
+            <div class="form-group row">
+                    <button type="button" class="btn btn-success mr-2">保存</button>
+                    <button type="button" class="btn btn-info">取消</button>
+            </div>
         </form>
-
+        </div>
     </div>
-
 
 </div>
 
