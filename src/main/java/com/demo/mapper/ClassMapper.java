@@ -9,7 +9,11 @@ public interface ClassMapper {
 
     int insertSelective(Class record);
 
+    // 根据班级id获取班级
     Class selectByPrimaryKey(Integer id);
+
+    // 根据班级name获取班级
+    Class selectByPrimaryName(String name);
 
     int updateByPrimaryKeySelective(Class record);
 

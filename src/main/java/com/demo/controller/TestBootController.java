@@ -1,6 +1,8 @@
 package com.demo.controller;
 
+import com.demo.entity.Class;
 import com.demo.entity.User;
+import com.demo.service.ClassService;
 import com.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,11 +18,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class TestBootController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private ClassService classService;
 
     @RequestMapping("getUser")
     public String getUser(ModelMap map) {
         User user = userService.getUserById(1);
-        map.addAttribute("message", user);
+        Class aClass =classService.getClassByName("16软件工程");
+        map.addAttribute("message", aClass.getName());
         return "index";
     }
 

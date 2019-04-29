@@ -23,6 +23,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    // 根据用户name获取用户
     public User getUserByName(String name) {
         return userMapper.selectByPrimaryName(name);
     }

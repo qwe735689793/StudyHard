@@ -15,6 +15,13 @@
     from class
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <!--根据班级name获取班级-->
+  <select id="selectByPrimaryName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from class
+    where name = #{name,jdbcType=VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from class
     where id = #{id,jdbcType=INTEGER}
