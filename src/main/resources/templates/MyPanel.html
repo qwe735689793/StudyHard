@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的面板</title>
+    <link href="webjars/bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet"/>
+    <link href="webjars/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet"/>
+    <script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts.min.js"></script>
+    <link charset="utf-8" href="css/style.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row m-3">
+        <!--课程选择区域-->
+        <div class="col-sm-2">课程选择区域还没写</div>
+        <!--echarts图表嵌入-->
+        <div class="col-sm-6" id="main" style="height: 400px;">
+        </div>
+        <!--团体成绩成绩-->
+        <div class="col-sm-2 p-2" style="overflow-y: auto; max-height: 350px; margin-right: 0px;">
+            <div class="text-center mb-3" style="font-weight: bold;">团队成绩排名</div>
+            <table class="table table-striped no-footer table-sm">
+                <tbody>
+                <!--测试数据 后期js加载-->
+                <tr>
+                    <td>1</td>
+                    <td>XXXX</td>
+                    <td>0.00</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>XXXX</td>
+                    <td>0.00</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>XXXX</td>
+                    <td>0.00</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>XXXX</td>
+                    <td>0.00</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>XXXX</td>
+                    <td>0.00</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>XXXX</td>
+                    <td>0.00</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>XXXX</td>
+                    <td>0.00</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>XXXX</td>
+                    <td>0.00</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>XXXX</td>
+                    <td>0.00</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>XXXX</td>
+                    <td>0.00</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>XXXX</td>
+                    <td>0.00</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>XXXX</td>
+                    <td>0.00</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>XXXX</td>
+                    <td>0.00</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-2 p-2" style="overflow-y: auto; max-height: 350px; margin-right: 0px;">
+            <div class="text-center mb-3" style="font-weight: bold;">个人成绩排名</div>
+            <table class="table table-striped no-footer table-sm">
+                <tbody>
+                <!--测试数据 后期js加载-->
+                <tr>
+                    <td>1</td>
+                    <td>XXXX</td>
+                    <td>0.00</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>XXXX</td>
+                    <td>0.00</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>XXXX</td>
+                    <td>0.00</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>XXXX</td>
+                    <td>0.00</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>XXXX</td>
+                    <td>0.00</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>XXXX</td>
+                    <td>0.00</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>XXXX</td>
+                    <td>0.00</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>XXXX</td>
+                    <td>0.00</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>XXXX</td>
+                    <td>0.00</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>XXXX</td>
+                    <td>0.00</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>XXXX</td>
+                    <td>0.00</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>XXXX</td>
+                    <td>0.00</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+<script src="webjars/jquery/3.3.1-2/jquery.min.js"></script>
+<script src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+<script>
+    window.onresize = function () {
+        // alert("2222");
+    }
+</script>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+            text: 'XX班成绩报表',
+            subtext: '备注：测试'
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            data: ['团队成绩-分布数', '个人成绩-分布数']
+        },
+        toolbox: {
+            show: true,
+            feature: {
+                mark: {show: true},
+                dataView: {show: true, readOnly: false},             //查看数据
+                //  magicType : {show: true, type: ['line', 'bar']},
+                //restore : {show: true},
+                // saveAsImage : {show: true}
+            }
+        },
+        calculable: true,
+        xAxis: [
+            {
+                type: 'category',
+                data: ['不及格<60', '及格<70分', '中等<80分', '良好90分', '优秀<100']
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value'
+            }
+        ],
+        series: [
+            {
+                name: '团队成绩-分布数',
+                type: 'bar',
+                data: [5.0, 7.0, 8.0, 10, 12],
+                markPoint: {
+                    data: [
+                        {type: 'max', name: '最大值'},
+                        {type: 'min', name: '最小值'}
+                    ]
+                },
+            },
+            {
+                name: '个人成绩-分布数',
+                type: 'bar',
+                data: [12, 8, 10, 10, 5],
+                markPoint: {
+                    data: [
+                        {type: 'max', name: '最大值'},
+                        {type: 'min', name: '最小值'}
+                    ]
+                },
+            }
+        ]
+    };
+
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+</html>
