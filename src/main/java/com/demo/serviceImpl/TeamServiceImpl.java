@@ -24,6 +24,6 @@ public class TeamServiceImpl implements TeamService {
     @Override
     // 根据团队name获取团队
     public Team getTeamByName(String name) {
-        return null;
+        return teamMapper.selectByPrimaryName(name);
     }
 }
