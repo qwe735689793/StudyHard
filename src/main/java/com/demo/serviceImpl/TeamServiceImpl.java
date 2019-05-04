@@ -17,7 +17,13 @@ public class TeamServiceImpl implements TeamService {
 
     @Override
     // 根据团队id获取团队
-    public Team getTeacherById(int id) {
+    public Team getTeamById(int id) {
         return teamMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    // 根据团队name获取团队
+    public Team getTeamByName(String name) {
+        return null;
     }
 }
