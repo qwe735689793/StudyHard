@@ -68,4 +68,9 @@ public class TestBootController {
     public String getMycourses(ModelMap map) {
         return "Mycourses";
     }
+
+    @RequestMapping("getMyPanel")
+    public String getMypanel(ModelMap map) {
+        return "MyPanel";
+    }
 }
