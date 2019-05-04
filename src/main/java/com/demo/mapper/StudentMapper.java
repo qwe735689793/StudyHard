@@ -9,6 +9,7 @@ public interface StudentMapper {
 
     int insertSelective(Student record);
 
+    // 根据学生id获取学生
     Student selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Student record);

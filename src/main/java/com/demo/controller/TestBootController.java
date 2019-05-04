@@ -25,8 +25,8 @@ public class TestBootController {
     private TeamService teamService;
     @Autowired
     private TaskService taskService;
-//    @Autowired
-//    private StudentService studentService;
+    @Autowired
+    private StudentService studentService;
 
     @RequestMapping("getIndex")
     public String getUser(ModelMap map) {
@@ -35,7 +35,8 @@ public class TestBootController {
         Teacher teacher = teacherService.getTeacherById(1);
         Team team = teamService.getTeamById(1);
         Task task = taskService.getTaskById(1);
-        map.addAttribute("message", task.getName());
+        Student student=studentService.getStudentById(1);
+        map.addAttribute("message", student.getName());
         return "index";
     }
 
