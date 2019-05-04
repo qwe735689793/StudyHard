@@ -8,7 +8,7 @@ public interface TaskMapper {
     int insert(Task record);
 
     int insertSelective(Task record);
-
+    // 根据任务id获取任务
     Task selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Task record);
