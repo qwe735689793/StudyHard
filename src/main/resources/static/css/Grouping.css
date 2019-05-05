@@ -1,0 +1,29 @@
+body {
+    font-family: arial;
+    background: rgb(242, 244, 246);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#elements-container {
+    text-align: center;
+}
+
+.draggable-element {
+    display: inline-block;
+    width: 160px;
+    height: 90px;
+    border: 1px solid rgb(196, 196, 196);
+    margin: 10px;
+    cursor: move;
+}
+
+.leader-border-top {
+    border-top: 4px solid #faa949;
+}
+
+.leader-border-bottom {
+    border-bottom: 1px solid rgb(196, 196, 196);
+}

@@ -73,4 +73,9 @@ public class TestBootController {
     public String getMypanel(ModelMap map) {
         return "MyPanel";
     }
+
+    @RequestMapping("getGrouping")
+    public String getGrouping(ModelMap map) {
+        return "Grouping";
+    }
 }
