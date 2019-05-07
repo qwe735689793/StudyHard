@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 /**
  * @author sch
  * @create 2019/3/29
@@ -36,7 +38,9 @@ public class TestBootController {
         Team team = teamService.getTeamById(1);
         Task task = taskService.getTaskById(1);
         Student student=studentService.getStudentById(1);
-        map.addAttribute("message", student.getName());
+        List<Student> stuList=studentService.getStudentListByName("student");
+        List<Teacher> teaList=teacherService.getTeacherListByName("teacher");
+        map.addAttribute("message",""+teaList.get(0).getTeacherId()+ teaList.get(1).getTeacherId());
         return "index";
     }
 
