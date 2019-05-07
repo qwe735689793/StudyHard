@@ -1,22 +1,23 @@
 package com.demo.entity;
 
 import java.util.Date;
-
+//任务
 public class Task {
+    //任务id
     private Integer id;
-
+    //任务名称
     private String name;
-
+    //任务成绩
     private Float grade;
-
+    //任务开始时间
     private Date start;
-
+    //任务结束时间
     private Date end;
-
+    //教师id
     private Integer tid;
-
+    //班级id
     private Integer cid;
-
+    //学生id
     private Integer sid;
 
     public Integer getId() {
