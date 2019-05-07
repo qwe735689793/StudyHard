@@ -9,11 +9,7 @@ public interface TeacherMapper {
 
     int insertSelective(Teacher record);
 
-    // 根据教师id获取教师
     Teacher selectByPrimaryKey(Integer id);
-
-    // 根据教师name获取教师
-    Teacher selectByPrimaryName(String name);
 
     int updateByPrimaryKeySelective(Teacher record);
 

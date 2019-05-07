@@ -17,6 +17,8 @@ public class Student {
 
     private Integer cid;
 
+    private Integer uid;
+
     public Integer getId() {
         return id;
     }
@@ -79,5 +81,13 @@ public class Student {
 
     public void setCid(Integer cid) {
         this.cid = cid;
+    }
+
+    public Integer getUid() {
+        return uid;
+    }
+
+    public void setUid(Integer uid) {
+        this.uid = uid;
     }
 }
