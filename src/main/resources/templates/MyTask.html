@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="webjars/bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet"/>
+    <script src="webjars/jquery/3.3.1-2/jquery.min.js"></script>
+    <script src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="webjars/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet"/>
+    <link charset="utf-8" href="css/style.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="bg-light" style="height: 25px">
+    <h3 class="panel-title ml-2">
+        作业描述
+    </h3>
+</div>
+<div class="container-fluid m-3">
+    <div class="col-lg-12">
+        <form class="form-horizontal" role="form">
+            <div class="row m-3">
+                <label class="col-sm-3 text-right">任务名称<span class="required">*</span>
+                </label>
+                <div class="col-sm-6">
+                    <input autocomplete="off" class="form-control" name="customernumber" placeholder="学号/证件号"
+                           type="text">
+                </div>
+            </div>
+            <div class="row m-3">
+                <label class="col-sm-3 text-right">截至时间<span class="required">*</span>
+                </label>
+                <div class="col-sm-6">
+                    <input autocomplete="off" class="form-control" name="customernumber" placeholder="学号/证件号"
+                           type="text">
+                </div>
+            </div>
+            <div class="row m-3">
+                <label class="col-sm-3 text-right">描述</label>
+                <div class="col-sm-6">
+                <textarea class="form-control" name="note" placeholder="" rows="7">
+                </textarea></div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="bg-light" style="height: 25px">
+    <h3 class="panel-title ml-2">
+        作业上传
+    </h3>
+</div>
+<div class="container-fluid m-4">
+    <div class="table-style">
+        <table class="table table-bordered table-hover table-sm">
+            <thead class="w-100">
+            <tr class="row mx-0">
+                <th class="col-sm-1 text-center">序号</th>
+                <th class="col-sm-5">附件</th>
+                <th class="col-sm-5">描述</th>
+                <th class="col-sm-1 ">操作</th>
+            </tr>
+            </thead>
+            <tbody class="w-100" id="Task">
+            <tr class="row mx-0">
+                <th class="col-sm-1 text-center">
+                    <div c>1</div>
+                </th>
+                <td class="col-sm-5">
+                    <div>
+                        <input type="file">
+                    </div>
+                </td>
+                <td class="col-sm-5">
+                    <div>
+                            <textarea class="form-control" name="note" placeholder="" rows="1">
+                            </textarea>
+                    </div>
+                </td>
+                <td class="text-center col-sm-1">
+                    <a class="text-info" id="" onclick="del(this)">
+                        删除
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="ml-4">
+    <button class="btn btn-success" onclick="add()" type="button">新增</button>
+    <button class="ml-3 btn btn-success" type="button">上传</button>
+</div>
+
+<script>
+    <!--
+    添加任务附件, count统计几个任务-->
+    var count = 1;
+
+    function add() {
+        count++;
+        var addHtml = '            <tr class="row mx-0" >\n' +
+            '                <th class="col-sm-1 text-center">\n' +
+            '                    <div c>' + count + '</div>\n' +
+            '                </th>\n' +
+            '                <td class="col-sm-5">\n' +
+            '                    <div>\n' +
+            '                        <input type="file">\n' +
+            '                    </div>\n' +
+            '                </td>\n' +
+            '                <td class="col-sm-5">\n' +
+            '                    <div>\n' +
+            '                        <textarea class="form-control" name="note" placeholder="" rows="1">\n' +
+            '                        </textarea>\n' +
+            '                    </div>\n' +
+            '                </td>\n' +
+            '                <td class="text-center col-sm-1">\n' +
+            '                    <a class="text-info" onclick="del(this)">\n' +
+            '                        删除\n' +
+            '                    </a>\n' +
+            '                </td>\n' +
+            '            </tr>';
+        $("#Task").append(addHtml);
+    }
+
+    <!--删除任务-->
+    function del(obj) {
+        $(obj).parent().parent().remove();
+        var count_again = 0;
+        $("#Task").children().each(function () {
+            count_again++;
+            $(this).children(":eq(0)").html(count_again);
+        });
+        count = count_again;
+    }
+</script>
+</body>
+</html>
