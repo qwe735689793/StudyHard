@@ -1,21 +1,24 @@
 package com.demo.entity;
-
+//学生类
 public class Student {
+    //学生id
     private Integer id;
-
+    //学生姓名
     private String name;
-
+    //学生性别
     private String gender;
-
+    //学生学号
     private Integer studentId;
-
+    //任务id
     private Integer taid;
-
+    //教师id
     private Integer tid;
-
+    //团队id
     private Integer teid;
-
+    //班级id
     private Integer cid;
+    //账号id
+    private Integer uid;
 
     public Integer getId() {
         return id;
@@ -79,5 +82,13 @@ public class Student {
 
     public void setCid(Integer cid) {
         this.cid = cid;
+    }
+
+    public Integer getUid() {
+        return uid;
+    }
+
+    public void setUid(Integer uid) {
+        this.uid = uid;
     }
 }

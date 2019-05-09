@@ -7,17 +7,19 @@
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="gender" jdbcType="VARCHAR" property="gender" />
     <result column="cid" jdbcType="INTEGER" property="cid" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, teacher_id, name, gender, cid
+    id, teacher_id, name, gender, cid, uid
   </sql>
+  <!--根据教师id获取教师-->
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from teacher
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <!--根据教师name获取教师-->
+  <!--根据教师name获取所有教师-->
   <select id="selectByPrimaryName" parameterType="java.lang.String" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
@@ -34,6 +36,7 @@
     values (#{id,jdbcType=INTEGER}, #{teacherId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 
       #{gender,jdbcType=VARCHAR}, #{cid,jdbcType=INTEGER})
   </insert>
+  <!--传入教师对象，增加教师-->
   <insert id="insertSelective" parameterType="com.demo.entity.Teacher">
     insert into teacher
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -71,6 +74,7 @@
       </if>
     </trim>
   </insert>
+  <!--传入教师对象，更新教师信息-->
   <update id="updateByPrimaryKeySelective" parameterType="com.demo.entity.Teacher">
     update teacher
     <set>
