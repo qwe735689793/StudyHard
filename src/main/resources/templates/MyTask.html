@@ -60,9 +60,9 @@
             </tr>
             </thead>
             <tbody class="w-100" id="Task">
-            <tr class="row mx-0">
-                <th class="col-sm-1 text-center">
-                    <div c>1</div>
+            <tr class="row m-0 p-0 text-center">
+                <th class="col-sm-1 m-0 p-0" style="line-height: 45px">
+                    1
                 </th>
                 <td class="col-sm-5">
                     <div>
@@ -75,7 +75,7 @@
                             </textarea>
                     </div>
                 </td>
-                <td class="text-center col-sm-1">
+                <td class="col-sm-1  m-0 p-0" style="line-height: 45px">
                     <a class="text-info" id="" onclick="del(this)">
                         删除
                     </a>
@@ -93,8 +93,6 @@
 </div>
 
 <script>
-    <!--
-    添加任务附件, count统计几个任务-->
     var count = 1;
 
     function add() {

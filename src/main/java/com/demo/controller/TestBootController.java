@@ -1,7 +1,7 @@
 package com.demo.controller;
 
-import com.demo.entity.*;
 import com.demo.entity.Class;
+import com.demo.entity.*;
 import com.demo.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -92,5 +92,10 @@ public class TestBootController {
     @RequestMapping("getGrouping")
     public String getGrouping(ModelMap map) {
         return "Grouping";
+    }
+
+    @RequestMapping("getMyTask")
+    public String getMyTask(ModelMap map) {
+        return "MyTask";
     }
 }
