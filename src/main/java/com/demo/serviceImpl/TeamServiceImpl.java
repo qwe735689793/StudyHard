@@ -30,6 +30,7 @@ public class TeamServiceImpl implements TeamService {
     }
 
     @Override
+    // 查询所有团队
     public List<Team> getAllTeam() {
         return teamMapper.selectAllTeam();
     }

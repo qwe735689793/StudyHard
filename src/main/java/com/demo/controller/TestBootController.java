@@ -1,6 +1,7 @@
 package com.demo.controller;
 
 import com.demo.entity.Course;
+import com.demo.entity.Student;
 import com.demo.entity.Team;
 import com.demo.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -84,7 +85,9 @@ public class TestBootController {
     @RequestMapping("getMyPanel")
     public String getMypanel(ModelMap map) {
         List<Team> teamList = teamService.getAllTeam();
+        List<Student> studentList = studentService.getAllStudent();
         map.addAttribute("teamList", teamList);
+        map.addAttribute("studentList", studentList);
         return "MyPanel";
     }
 
