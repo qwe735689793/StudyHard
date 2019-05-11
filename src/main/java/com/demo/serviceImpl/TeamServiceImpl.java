@@ -6,6 +6,8 @@ import com.demo.service.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author sch
  * @create 2019/5/4
@@ -25,5 +27,10 @@ public class TeamServiceImpl implements TeamService {
     // 根据团队name获取团队
     public Team getTeamByName(String name) {
         return teamMapper.selectByPrimaryName(name);
+    }
+
+    @Override
+    public List<Team> getAllTeam() {
+        return teamMapper.selectAllTeam();
     }
 }

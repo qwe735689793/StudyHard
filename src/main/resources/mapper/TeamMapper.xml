@@ -23,6 +23,12 @@
     from team
     where name = #{name,jdbcType=VARCHAR}
   </select>
+    <!--查询所有团队-->
+    <select id="selectAllTeam" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from team
+    </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from team
     where id = #{id,jdbcType=INTEGER}

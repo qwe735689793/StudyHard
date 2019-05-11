@@ -2,6 +2,8 @@ package com.demo.mapper;
 
 import com.demo.entity.Team;
 
+import java.util.List;
+
 public interface TeamMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -14,6 +16,9 @@ public interface TeamMapper {
 
     // 根据团队name获取团队
     Team selectByPrimaryName(String name);
+
+    // 查询所有团队
+    List<Team> selectAllTeam();
 
     int updateByPrimaryKeySelective(Team record);
 
