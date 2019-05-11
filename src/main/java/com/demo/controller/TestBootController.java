@@ -83,7 +83,7 @@ public class TestBootController {
     }
 
     @RequestMapping("getMyPanel")
-    public String getMypanel(ModelMap map) {
+    public String getMyPanel(ModelMap map) {
         List<Team> teamList = teamService.getAllTeam();
         List<Student> studentList = studentService.getAllStudent();
         map.addAttribute("teamList", teamList);
