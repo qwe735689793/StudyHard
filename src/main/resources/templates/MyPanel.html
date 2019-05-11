@@ -21,7 +21,6 @@
             <div class="text-center mb-3" style="font-weight: bold;">团队成绩排名</div>
             <table class="table table-striped no-footer table-sm">
                 <tbody>
-                <!--测试数据 后期js加载-->
                 <tr th:each="team,teamStat:${teamList}">
                     <td th:text="${team.getId()}">1</td>
                     <td th:text="${team.getName()}">XXXX</td>
@@ -34,7 +33,6 @@
             <div class="text-center mb-3" style="font-weight: bold;">个人成绩排名</div>
             <table class="table table-striped no-footer table-sm">
                 <tbody>
-                <!--测试数据 后期js加载-->
                 <tr th:each="student,studentStat:${studentList}">
                     <td th:text="${student.getId()}">1</td>
                     <td th:text="${student.getName()}">XXXX</td>
