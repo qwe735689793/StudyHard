@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>我的课程</title>
@@ -83,37 +83,18 @@
             </tr>
             </thead>
             <tbody>
-            <tr class="row mx-0 ">
+            <tr class="row mx-0" th:each="course,courseStat : ${courseList}">
                 <td class="col-sm-1">
-                    <div>1</div>
+                    <span th:text="${course.getId()}"></span>
                 </td>
                 <td class="col-sm-4">
-                    <div>j2ee测试</div>
+                    <span th:text="${course.getName()}"></span>
                 </td>
                 <td class="col-sm-2">
-                    <div>xxxx-xx-xx</div>
+                    <span th:text="${course.getStart()}"></span>
                 </td>
                 <td class="col-sm-2">
-                    <div>xxxx-xx-xx</div>
-                </td>
-                <td class="text-center col-sm-3">
-                    <a class="text-info" href="getcurriculum">
-                        进入课程中心
-                    </a>
-                </td>
-            </tr>
-            <tr class="row mx-0 ">
-                <td class="col-sm-1">
-                    <div>2</div>
-                </td>
-                <td class="col-sm-4">
-                    <div>j2ee测试</div>
-                </td>
-                <td class="col-sm-2">
-                    <div>xxxx-xx-xx</div>
-                </td>
-                <td class="col-sm-2">
-                    <div>xxxx-xx-xx</div>
+                    <span th:text="${course.getEnd()}"></span>
                 </td>
                 <td class="text-center col-sm-3">
                     <a class="text-info" href="getcurriculum">
