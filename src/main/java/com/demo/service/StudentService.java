@@ -11,4 +11,7 @@ public interface StudentService {
 
     //根据学生name查询所有学生
     List<Student> getStudentListByName(String name);
+
+    //查询所有学生
+    List<Student> getAllStudent();
 }

@@ -29,4 +29,10 @@ public class StudentServiceImpl implements StudentService {
     public List<Student> getStudentListByName(String name) {
         return studentMapper.selectByPrimaryName(name);
     }
+
+    @Override
+    //查询所有学生
+    public List<Student> getAllStudent() {
+        return studentMapper.selectAllStudent();
+    }
 }
