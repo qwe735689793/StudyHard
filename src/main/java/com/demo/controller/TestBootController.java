@@ -1,7 +1,6 @@
 package com.demo.controller;
 
-import com.demo.entity.Class;
-import com.demo.entity.*;
+import com.demo.entity.Course;
 import com.demo.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,18 +28,13 @@ public class TestBootController {
     private TaskService taskService;
     @Autowired
     private StudentService studentService;
+    @Autowired
+    private CourseService courseService;
 
     @RequestMapping("getIndex")
     public String getUser(ModelMap map) {
-        User user = userService.getUserById(1);
-        Class aClass = classService.getClassByName("16软件工程");
-        Teacher teacher = teacherService.getTeacherById(1);
-        Team team = teamService.getTeamById(1);
-        Task task = taskService.getTaskById(1);
-        Student student=studentService.getStudentById(1);
-        List<Student> stuList=studentService.getStudentListByName("student");
-        List<Teacher> teaList=teacherService.getTeacherListByName("teacher");
-        map.addAttribute("message",""+teaList.get(0).getTeacherId()+ teaList.get(1).getTeacherId());
+        List<Course> courseList = courseService.getAllCourse();
+        map.addAttribute("message", "" + courseList.get(0).getName() + courseList.get(1).getName());
         return "index";
     }
 
@@ -81,6 +75,8 @@ public class TestBootController {
 
     @RequestMapping("getMycourses")
     public String getMycourses(ModelMap map) {
+        List<Course> courseList = courseService.getAllCourse();
+        map.addAttribute("courseList", courseList);
         return "Mycourses";
     }
 
