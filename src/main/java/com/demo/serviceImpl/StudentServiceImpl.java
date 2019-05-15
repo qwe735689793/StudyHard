@@ -25,14 +25,19 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    //根据学生name查询所有学生
     public List<Student> getStudentListByName(String name) {
-        return studentMapper.selectByPrimaryName(name);
+        return null;
     }
 
     @Override
-    //查询所有学生
     public List<Student> getAllStudent() {
-        return studentMapper.selectAllStudent();
+        return null;
     }
+
+    @Override
+    public List<Student> selectClassAndStudent() {
+        return null;
+    }
+
+
 }

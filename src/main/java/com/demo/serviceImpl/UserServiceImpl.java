@@ -1,7 +1,7 @@
 package com.demo.serviceImpl;
 
-import com.demo.entity.User;
-import com.demo.mapper.UserMapper;
+import com.demo.entity.Account;
+import com.demo.mapper.AccountMapper;
 import com.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,23 +14,24 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
-    private UserMapper userMapper;
+    private AccountMapper accountMapper;
 
     @Override
     // 根据用户id获取用户
-    public User getUserById(int userId) {
-        return userMapper.selectByPrimaryKey(userId);
+    public Account getUserById(int userId) {
+        return accountMapper.selectByPrimaryKey(userId);
     }
 
     @Override
     // 根据用户name获取用户
-    public User getUserByName(String name) {
-        return userMapper.selectByPrimaryName(name);
+    public Account getUserByName(String name) {
+        return accountMapper.selectByPrimaryName(name);
     }
+
 
     @Override
     // 增加一个用户
-    public int addUser(User user) {
-        return userMapper.insert(user);
+    public int addUser(Account user) {
+        return accountMapper.insert(user);
     }
 }

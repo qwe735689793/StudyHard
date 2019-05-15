@@ -2,16 +2,18 @@ package com.demo.entity;
 
 import java.util.Date;
 
-public class Course {
+public class Operation {
     private Integer id;
 
-    private String code;
-
     private String name;
+
+    private String content;
 
     private Date start;
 
     private Date end;
+
+    private Integer status;
 
     private Integer teacherId;
 
@@ -23,20 +25,20 @@ public class Course {
         this.id = id;
     }
 
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code == null ? null : code.trim();
-    }
-
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
     }
 
     public Date getStart() {
@@ -53,6 +55,14 @@ public class Course {
 
     public void setEnd(Date end) {
         this.end = end;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public Integer getTeacherId() {

@@ -1,12 +1,13 @@
 package com.demo.entity;
 
-//用户类
-public class User {
+public class Account {
     private Integer id;
 
     private String name;
 
     private String password;
+
+    private Integer status;
 
     public Integer getId() {
         return id;
@@ -32,8 +33,11 @@ public class User {
         this.password = password == null ? null : password.trim();
     }
 
-    @Override
-    public String toString() {
-        return super.toString();
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }

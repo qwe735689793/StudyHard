@@ -1,11 +1,9 @@
 package com.demo.service;
 
-import com.demo.entity.Class;
-
 import java.util.List;
 
 //业务逻辑接口层
-public interface ClassService {
+public interface ClassesService {
     // 根据班级id获取班级
     Class getClassById(int id);
 

@@ -25,8 +25,8 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    // 查询所有课程
     public List<Course> getAllCourse() {
-        return courseMapper.selectAllCourse();
+        return null;
     }
+
 }

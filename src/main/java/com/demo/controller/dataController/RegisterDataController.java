@@ -1,6 +1,6 @@
 package com.demo.controller.dataController;
 
-import com.demo.entity.User;
+import com.demo.entity.Account;
 import com.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,7 +26,7 @@ public class RegisterDataController {
     @PostMapping("/checkRegister")
     @ResponseBody
     public Object checkRegister(@RequestBody Map<String, Object> map) {
-        User newUser = new User();
+        Account newUser = new Account();
         newUser.setName(map.get("username").toString());
         newUser.setPassword(map.get("password").toString());
         System.out.println(newUser.getName() + ":" + newUser.getPassword());
@@ -40,11 +40,11 @@ public class RegisterDataController {
     @ResponseBody
     public String checkUserName(@RequestBody Map<String, Object> map) {
         String flag = "true";
-        User newUser = new User();
+        Account newUser = new Account();
 
         newUser.setName(map.get("username").toString());
 
-        User oldUser = userService.getUserByName(newUser.getName());
+        Account oldUser = userService.getUserByName(newUser.getName());
         if (oldUser != null) {
             flag = "false";
         }

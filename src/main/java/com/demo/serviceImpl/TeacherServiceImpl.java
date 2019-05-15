@@ -24,9 +24,8 @@ public class TeacherServiceImpl implements TeacherService {
     }
 
     @Override
-    //根据教师name获取所有教师
     public List<Teacher> getTeacherListByName(String name) {
-        return teacherMapper.selectByPrimaryName(name);
+        return null;
     }
 
     @Override

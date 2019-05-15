@@ -1,6 +1,6 @@
 package com.demo.controller.dataController;
 
-import com.demo.entity.User;
+import com.demo.entity.Account;
 import com.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,12 +26,12 @@ public class LoginDataController {
     @ResponseBody
     public String checkLogin(@RequestBody Map<String, Object> map) {
         String flag = "false";
-        User newUser = new User();
+        Account newUser = new Account();
         newUser.setName(map.get("username").toString());
         newUser.setPassword(map.get("password").toString());
 //        System.out.println(newUser.getName() + ":" + newUser.getPassword());
 
-        User oldUser = userService.getUserByName(newUser.getName());
+        Account oldUser = userService.getUserByName(newUser.getName());
 
         if (oldUser != null) {
             if (oldUser.getName().equals(newUser.getName()) && oldUser.getPassword().equals(newUser.getPassword())) {

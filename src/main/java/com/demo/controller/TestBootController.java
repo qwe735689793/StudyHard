@@ -21,13 +21,13 @@ public class TestBootController {
     @Autowired
     private UserService userService;
     @Autowired
-    private ClassService classService;
+    private ClassesService classService;
     @Autowired
     private TeacherService teacherService;
     @Autowired
     private TeamService teamService;
     @Autowired
-    private TaskService taskService;
+    private OperationService operationService;
     @Autowired
     private StudentService studentService;
     @Autowired
@@ -35,8 +35,6 @@ public class TestBootController {
 
     @RequestMapping("getIndex")
     public String getUser(ModelMap map) {
-        List<Course> courseList = courseService.getAllCourse();
-        map.addAttribute("message", "" + courseList.get(0).getName() + courseList.get(1).getName());
         return "index";
     }
 
@@ -85,7 +83,7 @@ public class TestBootController {
     @RequestMapping("getMyPanel")
     public String getMyPanel(ModelMap map) {
         List<Team> teamList = teamService.getAllTeam();
-        List<Student> studentList = studentService.getAllStudent();
+        List<Student> studentList = studentService.selectClassAndStudent();
         map.addAttribute("teamList", teamList);
         map.addAttribute("studentList", studentList);
         return "MyPanel";

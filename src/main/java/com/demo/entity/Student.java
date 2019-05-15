@@ -1,24 +1,21 @@
 package com.demo.entity;
-//学生类
+
 public class Student {
-    //学生id
     private Integer id;
-    //学生姓名
+
+    private String code;
+
     private String name;
-    //学生性别
-    private String gender;
-    //学生学号
-    private Integer studentId;
-    //任务id
-    private Integer taid;
-    //教师id
-    private Integer tid;
-    //团队id
-    private Integer teid;
-    //班级id
-    private Integer cid;
-    //账号id
-    private Integer uid;
+
+    private Integer teamId;
+
+    private Integer classesId;
+
+    private Integer courseId;
+
+    private Integer operationId;
+
+    private Integer accountId;
 
     public Integer getId() {
         return id;
@@ -26,6 +23,14 @@ public class Student {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code == null ? null : code.trim();
     }
 
     public String getName() {
@@ -36,59 +41,43 @@ public class Student {
         this.name = name == null ? null : name.trim();
     }
 
-    public String getGender() {
-        return gender;
+    public Integer getTeamId() {
+        return teamId;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender == null ? null : gender.trim();
+    public void setTeamId(Integer teamId) {
+        this.teamId = teamId;
     }
 
-    public Integer getStudentId() {
-        return studentId;
+    public Integer getClassesId() {
+        return classesId;
     }
 
-    public void setStudentId(Integer studentId) {
-        this.studentId = studentId;
+    public void setClassesId(Integer classesId) {
+        this.classesId = classesId;
     }
 
-    public Integer getTaid() {
-        return taid;
+    public Integer getCourseId() {
+        return courseId;
     }
 
-    public void setTaid(Integer taid) {
-        this.taid = taid;
+    public void setCourseId(Integer courseId) {
+        this.courseId = courseId;
     }
 
-    public Integer getTid() {
-        return tid;
+    public Integer getOperationId() {
+        return operationId;
     }
 
-    public void setTid(Integer tid) {
-        this.tid = tid;
+    public void setOperationId(Integer operationId) {
+        this.operationId = operationId;
     }
 
-    public Integer getTeid() {
-        return teid;
+    public Integer getAccountId() {
+        return accountId;
     }
 
-    public void setTeid(Integer teid) {
-        this.teid = teid;
-    }
-
-    public Integer getCid() {
-        return cid;
-    }
-
-    public void setCid(Integer cid) {
-        this.cid = cid;
-    }
-
-    public Integer getUid() {
-        return uid;
-    }
-
-    public void setUid(Integer uid) {
-        this.uid = uid;
+    public void setAccountId(Integer accountId) {
+        this.accountId = accountId;
     }
 }

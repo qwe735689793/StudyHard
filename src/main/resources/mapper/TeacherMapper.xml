@@ -3,102 +3,80 @@
 <mapper namespace="com.demo.mapper.TeacherMapper">
   <resultMap id="BaseResultMap" type="com.demo.entity.Teacher">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="teacher_id" jdbcType="BIGINT" property="teacherId" />
+    <result column="code" jdbcType="VARCHAR" property="code"/>
     <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="gender" jdbcType="VARCHAR" property="gender" />
-    <result column="cid" jdbcType="INTEGER" property="cid" />
-    <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="account_id" jdbcType="INTEGER" property="accountId"/>
   </resultMap>
   <sql id="Base_Column_List">
-    id, teacher_id, name, gender, cid, uid
+    id, code, name, account_id
   </sql>
-  <!--根据教师id获取教师-->
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from teacher
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <!--根据教师name获取所有教师-->
-  <select id="selectByPrimaryName" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List" />
-    from teacher
-    where name = #{name,jdbcType=VARCHAR}
-  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from teacher
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.demo.entity.Teacher">
-    insert into teacher (id, teacher_id, name, 
-      gender, cid)
-    values (#{id,jdbcType=INTEGER}, #{teacherId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 
-      #{gender,jdbcType=VARCHAR}, #{cid,jdbcType=INTEGER})
+    insert into teacher (id, code, name, 
+      account_id)
+    values (#{id,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{accountId,jdbcType=INTEGER})
   </insert>
-  <!--传入教师对象，增加教师-->
   <insert id="insertSelective" parameterType="com.demo.entity.Teacher">
     insert into teacher
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
       </if>
-      <if test="teacherId != null">
-        teacher_id,
+      <if test="code != null">
+        code,
       </if>
       <if test="name != null">
         name,
       </if>
-      <if test="gender != null">
-        gender,
-      </if>
-      <if test="cid != null">
-        cid,
+      <if test="accountId != null">
+        account_id,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="teacherId != null">
-        #{teacherId,jdbcType=BIGINT},
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
       </if>
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
       </if>
-      <if test="gender != null">
-        #{gender,jdbcType=VARCHAR},
-      </if>
-      <if test="cid != null">
-        #{cid,jdbcType=INTEGER},
+      <if test="accountId != null">
+        #{accountId,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
-  <!--传入教师对象，更新教师信息-->
   <update id="updateByPrimaryKeySelective" parameterType="com.demo.entity.Teacher">
     update teacher
     <set>
-      <if test="teacherId != null">
-        teacher_id = #{teacherId,jdbcType=BIGINT},
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
       </if>
       <if test="name != null">
         name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="gender != null">
-        gender = #{gender,jdbcType=VARCHAR},
-      </if>
-      <if test="cid != null">
-        cid = #{cid,jdbcType=INTEGER},
+      <if test="accountId != null">
+        account_id = #{accountId,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.demo.entity.Teacher">
     update teacher
-    set teacher_id = #{teacherId,jdbcType=BIGINT},
+    set code = #{code,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},
-      gender = #{gender,jdbcType=VARCHAR},
-      cid = #{cid,jdbcType=INTEGER}
+      account_id = #{accountId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

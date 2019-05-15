@@ -3,14 +3,14 @@
 <mapper namespace="com.demo.mapper.CourseMapper">
     <resultMap id="BaseResultMap" type="com.demo.entity.Course">
         <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="code" jdbcType="VARCHAR" property="code"/>
         <result column="name" jdbcType="VARCHAR" property="name"/>
         <result column="start" jdbcType="TIMESTAMP" property="start"/>
         <result column="end" jdbcType="TIMESTAMP" property="end"/>
-        <result column="tid" jdbcType="INTEGER" property="tid"/>
-        <result column="sid" jdbcType="INTEGER" property="sid"/>
+        <result column="teacher_id" jdbcType="INTEGER" property="teacherId"/>
     </resultMap>
     <sql id="Base_Column_List">
-    id, name, start, end, tid, sid
+    id, code, name, start, end, teacher_id
   </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
@@ -18,27 +18,26 @@
         from course
         where id = #{id,jdbcType=INTEGER}
     </select>
-    <!--查询所有课程-->
-    <select id="selectAllCourse" resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from course
-    </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from course
     where id = #{id,jdbcType=INTEGER}
   </delete>
     <insert id="insert" parameterType="com.demo.entity.Course">
-    insert into course (id, name, start, 
-      end, tid, sid)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{start,jdbcType=TIMESTAMP}, 
-      #{end,jdbcType=TIMESTAMP}, #{tid,jdbcType=INTEGER}, #{sid,jdbcType=INTEGER})
+    insert into course (id, code, name, 
+      start, end, teacher_id
+      )
+    values (#{id,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{start,jdbcType=TIMESTAMP}, #{end,jdbcType=TIMESTAMP}, #{teacherId,jdbcType=INTEGER}
+      )
   </insert>
     <insert id="insertSelective" parameterType="com.demo.entity.Course">
         insert into course
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
                 id,
+            </if>
+            <if test="code != null">
+                code,
             </if>
             <if test="name != null">
                 name,
@@ -49,16 +48,16 @@
             <if test="end != null">
                 end,
             </if>
-            <if test="tid != null">
-                tid,
-            </if>
-            <if test="sid != null">
-                sid,
+            <if test="teacherId != null">
+                teacher_id,
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="id != null">
                 #{id,jdbcType=INTEGER},
+            </if>
+            <if test="code != null">
+                #{code,jdbcType=VARCHAR},
             </if>
             <if test="name != null">
                 #{name,jdbcType=VARCHAR},
@@ -69,17 +68,17 @@
             <if test="end != null">
                 #{end,jdbcType=TIMESTAMP},
             </if>
-            <if test="tid != null">
-                #{tid,jdbcType=INTEGER},
-            </if>
-            <if test="sid != null">
-                #{sid,jdbcType=INTEGER},
+            <if test="teacherId != null">
+                #{teacherId,jdbcType=INTEGER},
             </if>
         </trim>
     </insert>
     <update id="updateByPrimaryKeySelective" parameterType="com.demo.entity.Course">
         update course
         <set>
+            <if test="code != null">
+                code = #{code,jdbcType=VARCHAR},
+            </if>
             <if test="name != null">
                 name = #{name,jdbcType=VARCHAR},
             </if>
@@ -89,22 +88,19 @@
             <if test="end != null">
                 end = #{end,jdbcType=TIMESTAMP},
             </if>
-            <if test="tid != null">
-                tid = #{tid,jdbcType=INTEGER},
-            </if>
-            <if test="sid != null">
-                sid = #{sid,jdbcType=INTEGER},
+            <if test="teacherId != null">
+                teacher_id = #{teacherId,jdbcType=INTEGER},
             </if>
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.demo.entity.Course">
     update course
-    set name = #{name,jdbcType=VARCHAR},
+    set code = #{code,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
       start = #{start,jdbcType=TIMESTAMP},
       end = #{end,jdbcType=TIMESTAMP},
-      tid = #{tid,jdbcType=INTEGER},
-      sid = #{sid,jdbcType=INTEGER}
+      teacher_id = #{teacherId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

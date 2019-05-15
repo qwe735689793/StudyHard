@@ -1,18 +1,13 @@
 package com.demo.entity;
 
 public class Teacher {
-    //教师id
     private Integer id;
-    //教师学号
-    private Long teacherId;
-    //教师姓名
+
+    private String code;
+
     private String name;
-    //教师性别
-    private String gender;
-    //班级id
-    private Integer cid;
-    //账号id
-    private Integer uid;
+
+    private Integer accountId;
 
     public Integer getId() {
         return id;
@@ -22,12 +17,12 @@ public class Teacher {
         this.id = id;
     }
 
-    public Long getTeacherId() {
-        return teacherId;
+    public String getCode() {
+        return code;
     }
 
-    public void setTeacherId(Long teacherId) {
-        this.teacherId = teacherId;
+    public void setCode(String code) {
+        this.code = code == null ? null : code.trim();
     }
 
     public String getName() {
@@ -38,27 +33,11 @@ public class Teacher {
         this.name = name == null ? null : name.trim();
     }
 
-    public String getGender() {
-        return gender;
+    public Integer getAccountId() {
+        return accountId;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender == null ? null : gender.trim();
-    }
-
-    public Integer getCid() {
-        return cid;
-    }
-
-    public void setCid(Integer cid) {
-        this.cid = cid;
-    }
-
-    public Integer getUid() {
-        return uid;
-    }
-
-    public void setUid(Integer uid) {
-        this.uid = uid;
+    public void setAccountId(Integer accountId) {
+        this.accountId = accountId;
     }
 }

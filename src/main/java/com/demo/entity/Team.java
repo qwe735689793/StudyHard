@@ -1,14 +1,13 @@
 package com.demo.entity;
-//团队类
+
 public class Team {
-    //团队id
     private Integer id;
-    //团队名称
+
+    private String code;
+
     private String name;
-    //教师id
-    private Integer tid;
-    //班级id
-    private Integer cid;
+
+    private Integer teacherId;
 
     public Integer getId() {
         return id;
@@ -16,6 +15,14 @@ public class Team {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code == null ? null : code.trim();
     }
 
     public String getName() {
@@ -26,19 +33,11 @@ public class Team {
         this.name = name == null ? null : name.trim();
     }
 
-    public Integer getTid() {
-        return tid;
+    public Integer getTeacherId() {
+        return teacherId;
     }
 
-    public void setTid(Integer tid) {
-        this.tid = tid;
-    }
-
-    public Integer getCid() {
-        return cid;
-    }
-
-    public void setCid(Integer cid) {
-        this.cid = cid;
+    public void setTeacherId(Integer teacherId) {
+        this.teacherId = teacherId;
     }
 }

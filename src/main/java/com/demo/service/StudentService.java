@@ -14,4 +14,7 @@ public interface StudentService {
 
     //查询所有学生
     List<Student> getAllStudent();
+
+    //查询所有学生
+    List<Student> selectClassAndStudent();
 }
