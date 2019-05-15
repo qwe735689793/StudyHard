@@ -19,14 +19,27 @@ public class CourseServiceImpl implements CourseService {
     private CourseMapper courseMapper;
 
     @Override
-    // 根据课程id获取课程
+    /*根据课程id获取课程*/
     public Course getCourseById(int id) {
         return null;
     }
 
     @Override
+    /*查询所有课程*/
     public List<Course> getAllCourse() {
-        return null;
+        return courseMapper.selectAllCourse();
+    }
+
+    @Override
+    /*增加一个课程*/
+    public int addCourse(Course course) {
+        return courseMapper.insertSelective(course);
+    }
+
+    @Override
+    /*更新一个课程*/
+    public int updateCourse(Course course) {
+        return courseMapper.updateByPrimaryKeySelective(course);
     }
 
 }

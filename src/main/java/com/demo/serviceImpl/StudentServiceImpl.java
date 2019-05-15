@@ -31,7 +31,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public List<Student> getAllStudent() {
-        return null;
+        return studentMapper.selectAllStudent();
     }
 
     @Override
@@ -42,13 +42,13 @@ public class StudentServiceImpl implements StudentService {
     @Override
     /*增加一个学生*/
     public int addStudent(Student student) {
-        System.out.println(student.getCode());
-        System.out.println(student.getName());
-        System.out.println(student.getClassesId());
-        System.out.println(student.getTeamId());
-        System.out.println(student.getAccountId());
         return studentMapper.insertSelective(student);
     }
 
+    @Override
+    /*更新一个学生*/
+    public int updateStudent(Student student) {
+        return studentMapper.updateByPrimaryKeySelective(student);
+    }
 
 }

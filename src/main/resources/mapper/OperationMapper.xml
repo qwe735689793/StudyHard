@@ -19,6 +19,12 @@
     from operation
     where id = #{id,jdbcType=INTEGER}
   </select>
+    <!--查询所有任务-->
+    <select id="selectAllOperation" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from operation
+    </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from operation
     where id = #{id,jdbcType=INTEGER}

@@ -20,4 +20,7 @@ public interface StudentService {
 
     /*增加一个学生*/
     int addStudent(Student student);
+
+    /*更新一个学生*/
+    int updateStudent(Student student);
 }
