@@ -16,11 +16,12 @@ public interface StudentService {
     List<Student> getAllStudent();
 
     /*查询所有学生*/
-    List<Student> selectClassAndStudent();
+    List<Student> getClassAndStudent();
 
     /*增加一个学生*/
     int addStudent(Student student);
 
     /*更新一个学生*/
     int updateStudent(Student student);
+
 }

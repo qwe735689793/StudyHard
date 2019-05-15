@@ -1,5 +1,6 @@
 package com.demo.serviceImpl;
 
+import com.demo.entity.Classes;
 import com.demo.mapper.ClassesMapper;
 import com.demo.service.ClassesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,5 +31,10 @@ public class ClassesServiceImpl implements ClassesService {
     @Override
     public List<Class> getClassListByTid(int tid) {
         return null;
+    }
+
+    @Override
+    public int addClasses(Classes classes) {
+        return classesMapper.insertSelective(classes);
     }
 }

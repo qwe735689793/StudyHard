@@ -32,10 +32,20 @@ public class TestBootController {
     private StudentService studentService;
     @Autowired
     private CourseService courseService;
+    @Autowired
+    private SACService sacService;
+    @Autowired
+    private SAOService saoService;
+    @Autowired
+    private TACService tacService;
 
     @RequestMapping("getIndex")
     public String getUser(ModelMap map) {
-
+        List<Student> studentList = studentService.getClassAndStudent();
+        System.out.println(studentList.get(0).getClasses());
+        System.out.println(studentList.get(0).getTeam());
+        System.out.println(studentList.get(1).getClasses());
+        System.out.println(studentList.get(1).getTeam());
         return "index";
     }
 
@@ -84,7 +94,7 @@ public class TestBootController {
     @RequestMapping("getMyPanel")
     public String getMyPanel(ModelMap map) {
         List<Team> teamList = teamService.getAllTeam();
-        List<Student> studentList = studentService.selectClassAndStudent();
+        List<Student> studentList = studentService.getClassAndStudent();
         map.addAttribute("teamList", teamList);
         map.addAttribute("studentList", studentList);
         return "MyPanel";

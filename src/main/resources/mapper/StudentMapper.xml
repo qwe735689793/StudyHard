@@ -9,23 +9,17 @@
     <result column="classes_id" jdbcType="INTEGER" property="classesId"/>
     <result column="account_id" jdbcType="INTEGER" property="accountId"/>
     <association property="classes" javaType="com.demo.entity.Classes">
-      <id column="id" jdbcType="INTEGER" property="id"/>
-      <result column="code" jdbcType="VARCHAR" property="code"/>
-      <result column="name" jdbcType="VARCHAR" property="name"/>
+      <id column="classes_id" jdbcType="INTEGER" property="id"/>
+      <result column="classes_code" jdbcType="VARCHAR" property="code"/>
+      <result column="classes_name" jdbcType="VARCHAR" property="name"/>
     </association>
   </resultMap>
   <sql id="Base_Column_List">
     id, code, name, team_id, classes_id, account_id
   </sql>
-  <!--  <sql id="Base_Classes_List">
-      c.id 'id', c.code 'code', c.name 'name'
-    </sql>
-    <select id="selectAllStudent" resultMap="BaseResultMap">
-      select
-      <include refid="Base_Column_List" />
-      <include refid="Base_Classes_List" />
-      from student s left join classes c on c.id=s.cid
-    </select>-->
+  <select id="selectStudentAndC" resultMap="BaseResultMap">
+      select s.*,c.id 'classes_id',c.code 'classes_code',c.name 'classes_name' from student s left join classes c on c.id=s.classes_id
+    </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

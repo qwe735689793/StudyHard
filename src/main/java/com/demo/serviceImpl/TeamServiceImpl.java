@@ -28,7 +28,14 @@ public class TeamServiceImpl implements TeamService {
     }
 
     @Override
+    /*查询所有团队*/
     public List<Team> getAllTeam() {
         return teamMapper.selectAllTeam();
+    }
+
+    @Override
+    /*增加一个团队*/
+    public int addTeam(Team team) {
+        return teamMapper.insertSelective(team);
     }
 }

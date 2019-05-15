@@ -18,7 +18,7 @@ public class TeacherServiceImpl implements TeacherService {
     private TeacherMapper teacherMapper;
 
     @Override
-    //根据教师id获取教师
+    /*根据教师id获取教师*/
     public Teacher getTeacherById(int id) {
         return teacherMapper.selectByPrimaryKey(id);
     }
@@ -29,8 +29,14 @@ public class TeacherServiceImpl implements TeacherService {
     }
 
     @Override
-    //传入教师对象，增加教师
+    /*增加教师*/
     public int addTeacher(Teacher teacher) {
         return teacherMapper.insertSelective(teacher);
+    }
+
+    @Override
+    /*获取所有教师对象*/
+    public List<Teacher> getAllTeacher() {
+        return teacherMapper.selectAllTeacher();
     }
 }

@@ -16,6 +16,12 @@
     from teacher
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <!--获取所有教师对象-->
+  <select id="selectAllTeacher" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from teacher
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from teacher
     where id = #{id,jdbcType=INTEGER}

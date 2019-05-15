@@ -35,8 +35,8 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public List<Student> selectClassAndStudent() {
-        return null;
+    public List<Student> getClassAndStudent() {
+        return studentMapper.selectStudentAndC();
     }
 
     @Override

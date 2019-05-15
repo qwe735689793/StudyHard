@@ -17,5 +17,6 @@ public interface TeamMapper {
 
     int updateByPrimaryKey(Team record);
 
+    /*获取所有团队对象*/
     List<Team> selectAllTeam();
 }
