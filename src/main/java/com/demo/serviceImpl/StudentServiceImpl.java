@@ -39,5 +39,16 @@ public class StudentServiceImpl implements StudentService {
         return null;
     }
 
+    @Override
+    /*增加一个学生*/
+    public int addStudent(Student student) {
+        System.out.println(student.getCode());
+        System.out.println(student.getName());
+        System.out.println(student.getClassesId());
+        System.out.println(student.getTeamId());
+        System.out.println(student.getAccountId());
+        return studentMapper.insertSelective(student);
+    }
+
 
 }

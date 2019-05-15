@@ -6,6 +6,8 @@ import com.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author sch
  * @create 2019/3/29
@@ -17,21 +19,26 @@ public class UserServiceImpl implements UserService {
     private AccountMapper accountMapper;
 
     @Override
-    // 根据用户id获取用户
+    /*根据用户id获取用户*/
     public Account getUserById(int userId) {
         return accountMapper.selectByPrimaryKey(userId);
     }
 
     @Override
-    // 根据用户name获取用户
+    /*根据用户name获取用户*/
     public Account getUserByName(String name) {
         return accountMapper.selectByPrimaryName(name);
     }
 
+    @Override
+    /*查询所有账号*/
+    public List<Account> getAllAcount() {
+        return accountMapper.selectAllAcount();
+    }
 
     @Override
-    // 增加一个用户
+    /*增加一个用户*/
     public int addUser(Account user) {
-        return accountMapper.insert(user);
+        return accountMapper.insertSelective(user);
     }
 }

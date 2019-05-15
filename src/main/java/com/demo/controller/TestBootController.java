@@ -35,6 +35,7 @@ public class TestBootController {
 
     @RequestMapping("getIndex")
     public String getUser(ModelMap map) {
+
         return "index";
     }
 

@@ -2,6 +2,8 @@ package com.demo.mapper;
 
 import com.demo.entity.Account;
 
+import java.util.List;
+
 public interface AccountMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -16,4 +18,7 @@ public interface AccountMapper {
     int updateByPrimaryKey(Account record);
 
     Account selectByPrimaryName(String name);
+
+    /*查询所有账号*/
+    List<Account> selectAllAcount();
 }

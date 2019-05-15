@@ -1,5 +1,8 @@
 package com.demo.entity;
 
+import lombok.Data;
+
+@Data
 public class Student {
     private Integer id;
 
@@ -11,11 +14,13 @@ public class Student {
 
     private Integer classesId;
 
-    private Integer courseId;
-
-    private Integer operationId;
-
     private Integer accountId;
+
+    private Classes classes;
+
+    private Team team;
+
+    private Account account;
 
     public Integer getId() {
         return id;
@@ -55,22 +60,6 @@ public class Student {
 
     public void setClassesId(Integer classesId) {
         this.classesId = classesId;
-    }
-
-    public Integer getCourseId() {
-        return courseId;
-    }
-
-    public void setCourseId(Integer courseId) {
-        this.courseId = courseId;
-    }
-
-    public Integer getOperationId() {
-        return operationId;
-    }
-
-    public void setOperationId(Integer operationId) {
-        this.operationId = operationId;
     }
 
     public Integer getAccountId() {
