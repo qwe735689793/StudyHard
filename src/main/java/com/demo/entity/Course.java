@@ -1,7 +1,11 @@
 package com.demo.entity;
 
-import java.util.Date;
+import lombok.Data;
 
+import java.util.Date;
+import java.util.List;
+
+@Data
 public class Course {
     private Integer id;
 
@@ -15,51 +19,7 @@ public class Course {
 
     private Integer teacherId;
 
-    public Integer getId() {
-        return id;
-    }
+    private Teacher teacher;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code == null ? null : code.trim();
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
-
-    public Date getStart() {
-        return start;
-    }
-
-    public void setStart(Date start) {
-        this.start = start;
-    }
-
-    public Date getEnd() {
-        return end;
-    }
-
-    public void setEnd(Date end) {
-        this.end = end;
-    }
-
-    public Integer getTeacherId() {
-        return teacherId;
-    }
-
-    public void setTeacherId(Integer teacherId) {
-        this.teacherId = teacherId;
-    }
+    private List<Student> studentList;
 }

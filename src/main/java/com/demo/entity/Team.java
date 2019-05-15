@@ -1,5 +1,10 @@
 package com.demo.entity;
 
+import lombok.Data;
+
+import java.util.List;
+
+@Data
 public class Team {
     private Integer id;
 
@@ -9,35 +14,7 @@ public class Team {
 
     private Integer teacherId;
 
-    public Integer getId() {
-        return id;
-    }
+    private Teacher teacher;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code == null ? null : code.trim();
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
-
-    public Integer getTeacherId() {
-        return teacherId;
-    }
-
-    public void setTeacherId(Integer teacherId) {
-        this.teacherId = teacherId;
-    }
+    private List<Student> studentList;
 }
