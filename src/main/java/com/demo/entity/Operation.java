@@ -21,5 +21,7 @@ public class Operation {
 
     private Integer teacherId;
 
+    private Teacher teacher;
+
     private List<Student> studentList;
 }

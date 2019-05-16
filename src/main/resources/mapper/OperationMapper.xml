@@ -9,6 +9,12 @@
     <result column="end" jdbcType="TIMESTAMP" property="end" />
     <result column="status" jdbcType="INTEGER" property="status"/>
     <result column="teacher_id" jdbcType="INTEGER" property="teacherId"/>
+    <association property="teacher" javaType="com.demo.entity.Teacher">
+      <id column="t_id" jdbcType="INTEGER" property="id"/>
+      <result column="t_code" jdbcType="VARCHAR" property="code"/>
+      <result column="t_name" jdbcType="VARCHAR" property="name"/>
+      <result column="t_account_id" jdbcType="INTEGER" property="accountId"/>
+    </association>
   </resultMap>
   <sql id="Base_Column_List">
     id, name, content, start, end, status, teacher_id
@@ -20,10 +26,10 @@
     where id = #{id,jdbcType=INTEGER}
   </select>
     <!--查询所有任务-->
-    <select id="selectAllOperation" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from operation
+  <select id="selectAllOperation" resultMap="BaseResultMap">
+        select o.*,t.id 't_id',t.code 't_code',t.name 't_name',t.account_id 't_account_id'
+        from operation o
+        left join teacher t on o.teacher_id=t.id
     </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from operation
