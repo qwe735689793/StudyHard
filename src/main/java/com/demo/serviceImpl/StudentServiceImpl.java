@@ -35,11 +35,6 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public List<Student> getClassAndStudent() {
-        return studentMapper.selectStudentAndC();
-    }
-
-    @Override
     /*增加一个学生*/
     public int addStudent(Student student) {
         return studentMapper.insertSelective(student);

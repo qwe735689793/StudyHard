@@ -9,25 +9,51 @@
     <result column="classes_id" jdbcType="INTEGER" property="classesId"/>
     <result column="account_id" jdbcType="INTEGER" property="accountId"/>
     <association property="classes" javaType="com.demo.entity.Classes">
-      <id column="classes_id" jdbcType="INTEGER" property="id"/>
-      <result column="classes_code" jdbcType="VARCHAR" property="code"/>
-      <result column="classes_name" jdbcType="VARCHAR" property="name"/>
+        <id column="c_id" jdbcType="INTEGER" property="id"/>
+        <result column="c_code" jdbcType="VARCHAR" property="code"/>
+        <result column="c_name" jdbcType="VARCHAR" property="name"/>
     </association>
+      <association property="team" javaType="com.demo.entity.Team">
+          <id column="t_id" jdbcType="INTEGER" property="id"/>
+          <result column="t_code" jdbcType="VARCHAR" property="code"/>
+          <result column="t_name" jdbcType="VARCHAR" property="name"/>
+          <result column="t_teacher_id" jdbcType="INTEGER" property="teacherId"/>
+      </association>
+      <association property="account" javaType="com.demo.entity.Account">
+          <id column="a_id" jdbcType="INTEGER" property="id"/>
+          <result column="a_name" jdbcType="VARCHAR" property="name"/>
+          <result column="a_password" jdbcType="VARCHAR" property="password"/>
+          <result column="a_status" jdbcType="INTEGER" property="status"/>
+      </association>
+      <collection property="operation" ofType="com.demo.entity.Operation">
+          <id column="o_id" jdbcType="INTEGER" property="id"/>
+          <result column="o_name" jdbcType="VARCHAR" property="name"/>
+          <result column="o_content" jdbcType="VARCHAR" property="content"/>
+          <result column="o_start" jdbcType="TIMESTAMP" property="start"/>
+          <result column="o_end" jdbcType="TIMESTAMP" property="end"/>
+          <result column="o_status" jdbcType="INTEGER" property="status"/>
+          <result column="o_teacher_id" jdbcType="INTEGER" property="teacherId"/>
+      </collection>
   </resultMap>
   <sql id="Base_Column_List">
     id, code, name, team_id, classes_id, account_id
   </sql>
-  <select id="selectStudentAndC" resultMap="BaseResultMap">
-      select s.*,c.id 'classes_id',c.code 'classes_code',c.name 'classes_name' from student s left join classes c on c.id=s.classes_id
-    </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from student
     where id = #{id,jdbcType=INTEGER}
   </select>
+    <!--查询所有学生-->
     <select id="selectAllStudent" resultMap="BaseResultMap">
-    select * from student
+    select s.*,
+    c.id 'c_id',c.code 'c_code',c.name 'c_name' ,
+    t.id 't_id',t.code 't_code',t.name 't_name',t.teacher_id 't_teacher_id',
+    a.id 'a_id',a.name 'a_name',a.password 'a_password',a.status 'a_status'
+    from student s
+    left join classes c on c.id=s.classes_id
+    left join team t on t.id=s.team_id
+    left join account a on a.id=s.account_id
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from student

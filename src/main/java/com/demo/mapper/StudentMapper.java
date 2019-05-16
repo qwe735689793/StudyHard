@@ -21,5 +21,4 @@ public interface StudentMapper {
 
     int updateByPrimaryKey(Student record);
 
-    List<Student> selectStudentAndC();
 }
