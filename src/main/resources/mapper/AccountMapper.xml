@@ -33,7 +33,7 @@
     <insert id="insert" parameterType="com.demo.entity.Account">
     insert into account (id, name, password, 
       status)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
       #{status,jdbcType=INTEGER})
   </insert>
     <insert id="insertSelective" parameterType="com.demo.entity.Account">

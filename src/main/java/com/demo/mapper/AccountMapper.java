@@ -11,6 +11,7 @@ public interface AccountMapper {
 
     int insertSelective(Account record);
 
+    /*根据id查询账号*/
     Account selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Account record);

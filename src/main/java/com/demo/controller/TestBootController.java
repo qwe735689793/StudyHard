@@ -41,11 +41,8 @@ public class TestBootController {
 
     @RequestMapping("getIndex")
     public String getUser(ModelMap map) {
-        List<Student> studentList = studentService.getClassAndStudent();
-        System.out.println(studentList.get(0).getClasses());
-        System.out.println(studentList.get(0).getTeam());
-        System.out.println(studentList.get(1).getClasses());
-        System.out.println(studentList.get(1).getTeam());
+        List<Student> studentList = studentService.getAllStudent();
+
         return "index";
     }
 
@@ -94,7 +91,7 @@ public class TestBootController {
     @RequestMapping("getMyPanel")
     public String getMyPanel(ModelMap map) {
         List<Team> teamList = teamService.getAllTeam();
-        List<Student> studentList = studentService.getClassAndStudent();
+        List<Student> studentList = studentService.getAllStudent();
         map.addAttribute("teamList", teamList);
         map.addAttribute("studentList", studentList);
         return "MyPanel";

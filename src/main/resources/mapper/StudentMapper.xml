@@ -25,7 +25,7 @@
           <result column="a_password" jdbcType="VARCHAR" property="password"/>
           <result column="a_status" jdbcType="INTEGER" property="status"/>
       </association>
-      <collection property="operation" ofType="com.demo.entity.Operation">
+    <collection property="operation" resultMap="com.demo.entity.Operation">
           <id column="o_id" jdbcType="INTEGER" property="id"/>
           <result column="o_name" jdbcType="VARCHAR" property="name"/>
           <result column="o_content" jdbcType="VARCHAR" property="content"/>
