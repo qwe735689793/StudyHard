@@ -8,6 +8,12 @@
         <result column="start" jdbcType="TIMESTAMP" property="start"/>
         <result column="end" jdbcType="TIMESTAMP" property="end"/>
         <result column="teacher_id" jdbcType="INTEGER" property="teacherId"/>
+        <association property="teacher" javaType="com.demo.entity.Teacher">
+            <id column="t_id" jdbcType="INTEGER" property="id"/>
+            <result column="t_code" jdbcType="VARCHAR" property="code"/>
+            <result column="t_name" jdbcType="VARCHAR" property="name"/>
+            <result column="t_account_id" jdbcType="INTEGER" property="accountId"/>
+        </association>
     </resultMap>
     <sql id="Base_Column_List">
     id, code, name, start, end, teacher_id
@@ -20,9 +26,9 @@
     </select>
     <!--查询所有课程-->
     <select id="selectAllCourse" resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from course
+        select c.*,t.id 't_id',t.code 't_code',t.name 't_name',t.account_id 't_account_id'
+        from course c
+        left join teacher t on t.id=c.teacher_id
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from course

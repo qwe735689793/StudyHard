@@ -1,7 +1,6 @@
 package com.demo.controller;
 
 import com.demo.entity.Course;
-import com.demo.entity.Operation;
 import com.demo.entity.Student;
 import com.demo.entity.Team;
 import com.demo.service.*;
@@ -43,12 +42,12 @@ public class TestBootController {
     @RequestMapping("getIndex")
     public String getUser(ModelMap map) {
         List<Student> studentList = studentService.getAllStudent();
-        List<Operation> operationList = operationService.getAllOperation();
-        for (int i = 0; i < operationList.size(); i++) {
-            System.out.println(operationList.get(i).getTeacher().getId());
-            System.out.println(operationList.get(i).getTeacher().getCode());
-            System.out.println(operationList.get(i).getTeacher().getName());
-            System.out.println(operationList.get(i).getTeacher().getAccountId());
+        List<Course> courseList = courseService.getAllCourse();
+        for (int i = 0; i < courseList.size(); i++) {
+            System.out.println(courseList.get(i).getTeacher().getId());
+            System.out.println(courseList.get(i).getTeacher().getCode());
+            System.out.println(courseList.get(i).getTeacher().getName());
+            System.out.println(courseList.get(i).getTeacher().getAccountId());
         }
         return "index";
     }
