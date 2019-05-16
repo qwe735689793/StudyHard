@@ -25,15 +25,6 @@
           <result column="a_password" jdbcType="VARCHAR" property="password"/>
           <result column="a_status" jdbcType="INTEGER" property="status"/>
       </association>
-    <collection property="operation" resultMap="com.demo.entity.Operation">
-          <id column="o_id" jdbcType="INTEGER" property="id"/>
-          <result column="o_name" jdbcType="VARCHAR" property="name"/>
-          <result column="o_content" jdbcType="VARCHAR" property="content"/>
-          <result column="o_start" jdbcType="TIMESTAMP" property="start"/>
-          <result column="o_end" jdbcType="TIMESTAMP" property="end"/>
-          <result column="o_status" jdbcType="INTEGER" property="status"/>
-          <result column="o_teacher_id" jdbcType="INTEGER" property="teacherId"/>
-      </collection>
   </resultMap>
   <sql id="Base_Column_List">
     id, code, name, team_id, classes_id, account_id
