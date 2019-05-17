@@ -12,4 +12,7 @@ public interface SACService {
 
     /*更新一个SAC*/
     void updateOneSAC(SAC sac);
+
+    /*根据课程id查询并按成绩排名*/
+    List<SAC> findAllOrderByScore(Integer course_id);
 }

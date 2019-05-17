@@ -21,4 +21,6 @@ public interface StudentService {
     /*更新一个学生*/
     int updateStudent(Student student);
 
+    /*根据学生id查询学生姓名*/
+    String getNameById(Integer id);
 }

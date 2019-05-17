@@ -30,4 +30,10 @@ public class SACServiceImpl implements SACService {
     public void updateOneSAC(SAC sac) {
         sacMapper.updateByPrimaryKeySelective(sac);
     }
+
+    @Override
+    /*根据课程id查询并按成绩排名*/
+    public List<SAC> findAllOrderByScore(Integer course_id) {
+        return sacMapper.selectAllOrderByScore(course_id);
+    }
 }

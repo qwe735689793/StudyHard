@@ -21,4 +21,6 @@ public interface StudentMapper {
 
     int updateByPrimaryKey(Student record);
 
+    /*根据学生id查询学生姓名*/
+    String selectStudentNameById(Integer id);
 }

@@ -17,5 +17,9 @@ public interface SACMapper {
 
     int updateByPrimaryKey(SAC record);
 
+    /*查询所有学生和课程*/
     List<SAC> selectAll();
+
+    /*根据课程id查询并按成绩排名*/
+    List<SAC> selectAllOrderByScore(Integer course_id);
 }

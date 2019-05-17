@@ -20,6 +20,12 @@
   <select id="selectAll" resultMap="BaseResultMap">
     select * from sac
   </select>
+  <!--根据课程id查询并按成绩排名-->
+  <select id="selectAllOrderByScore" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select * from sac
+    where course_id=#{course_id,jdbcType=INTEGER}
+    order by score
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from sac
     where id = #{id,jdbcType=INTEGER}

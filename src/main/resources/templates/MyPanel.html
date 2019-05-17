@@ -33,10 +33,10 @@
             <div class="text-center mb-3" style="font-weight: bold;">个人成绩排名</div>
             <table class="table table-striped no-footer table-sm">
                 <tbody>
-                <tr th:each="student,studentStat:${studentList}">
-                    <td th:text="${student.getId()}">1</td>
-                    <td th:text="${student.getName()}">XXXX</td>
-                    <td>0.00</td>
+                <tr th:each="stu,state:${stuList}">
+                    <td th:text="${stu.getId()}">1</td>
+                    <td th:text="${stu.getName()}">XXXX</td>
+                    <td th:text="${stu.getScore()}">0.00</td>
                 </tr>
                 </tbody>
             </table>
