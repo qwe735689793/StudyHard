@@ -21,6 +21,8 @@ public class Operation {
 
     private Integer teacherId;
 
+    private Float score;
+
     private Teacher teacher;
 
     private List<Student> studentList;

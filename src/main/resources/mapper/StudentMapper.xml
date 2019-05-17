@@ -30,10 +30,15 @@
     id, code, name, team_id, classes_id, account_id
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from student
-    where id = #{id,jdbcType=INTEGER}
+    select s.*,
+    c.id 'c_id',c.code 'c_code',c.name 'c_name' ,
+    t.id 't_id',t.code 't_code',t.name 't_name',t.teacher_id 't_teacher_id',
+    a.id 'a_id',a.name 'a_name',a.password 'a_password',a.status 'a_status'
+    from student s
+    left join classes c on c.id=s.classes_id
+    left join team t on t.id=s.team_id
+    left join account a on a.id=s.account_id
+    where account_id = #{id,jdbcType=INTEGER}
   </select>
     <!--查询所有学生-->
     <select id="selectAllStudent" resultMap="BaseResultMap">
