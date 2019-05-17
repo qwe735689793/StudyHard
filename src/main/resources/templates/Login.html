@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>登陆页面</title>
-    <script src="webjars/jquery/3.3.1-2/jquery.min.js"></script>
-    <script src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link href="webjars/bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet"/>
     <link href="webjars/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet"/>
     <link charset="utf-8" href="css/style.css" rel="stylesheet" type="text/css"/>
@@ -43,12 +41,40 @@
                     </div>
                 </div>
                 <div style="margin-top:10px;">
-                    <input class="form-control btn btn-info" type="button" value="登录预约体检"/>
+                    <input class="form-control btn btn-info" id="login" type="button" value="登录预约体检"/>
                 </div>
             </form>
         </div>
 
     </div>
 </div>
+<script src="webjars/jquery/3.3.1-2/jquery.min.js"></script>
+<script src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $('#login').click(function () {
+        var params = {
+            username: $('#username').val(),
+            password: $('#password').val()
+        };
+        $.ajax({
+            type: 'POST',
+            url: '/checkLogin',
+            contentType: 'application/json',
+            data: JSON.stringify(params),
+            success: function (result) {
+                console.log("successful");
+                console.log(result);
+                if (result === "/getLogin") {
+                    alert("error");
+                } else {
+                    window.location.href = result;
+                }
+            },
+            error: function () {
+                console.log("error");
+            }
+        })
+    })
+</script>
 </body>
 </html>

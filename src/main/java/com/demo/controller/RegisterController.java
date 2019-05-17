@@ -1,4 +1,4 @@
-package com.demo.controller.dataController;
+package com.demo.controller;
 
 import com.demo.entity.Account;
 import com.demo.service.UserService;
@@ -16,7 +16,7 @@ import java.util.Map;
  * @create 2019/4/12
  */
 @Controller
-public class RegisterDataController {
+public class RegisterController {
     @Autowired
     private UserService userService;
 

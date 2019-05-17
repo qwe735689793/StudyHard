@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="zh-cn">
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
@@ -189,7 +189,7 @@
                     <img src="images/avatar.jpg"/>
                 </div>
                 <div class="sp-info">
-                    W，您好！
+                    <span th:text="${#session.getAttribute('username')}"></span>，您好！
                     <i class="zmdi zmdi-caret-down"></i>
                 </div>
             </a>
@@ -212,7 +212,7 @@
         <!-- 菜单区 -->
         <ul class="main-menu">
             <li>
-                <a class="waves-effect" href="javascript:Tab.addTab('我的基本信息', 'getPslInformation');"><i
+                <a class="waves-effect" href="javascript:Tab.addTab('我的基本信息', '/getPslInformation');"><i
                         class="zmdi zmdi-home"></i>
                     我的基本信息</a>
             </li>

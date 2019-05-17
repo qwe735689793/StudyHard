@@ -17,6 +17,7 @@ import java.util.List;
  * 这是一个测试类！这是一个测试类！这是一个测试类
  */
 @Controller
+@RequestMapping("/")
 public class TestBootController {
     @Autowired
     private UserService userService;
@@ -43,12 +44,7 @@ public class TestBootController {
     public String getUser(ModelMap map) {
         List<Student> studentList = studentService.getAllStudent();
         List<Course> courseList = courseService.getAllCourse();
-        for (int i = 0; i < courseList.size(); i++) {
-            System.out.println(courseList.get(i).getTeacher().getId());
-            System.out.println(courseList.get(i).getTeacher().getCode());
-            System.out.println(courseList.get(i).getTeacher().getName());
-            System.out.println(courseList.get(i).getTeacher().getAccountId());
-        }
+        System.out.println("index");
         return "index";
     }
 
@@ -78,13 +74,8 @@ public class TestBootController {
     }
 
     @RequestMapping("getStudent_Home")
-    public String getStudent_Home(ModelMap map) {
+    public String getStudent_Home(ModelMap modelMap) {
         return "Student_Home";
-    }
-
-    @RequestMapping("getPslInformation")
-    public String getPslInformation(ModelMap map) {
-        return "PslInformation";
     }
 
     @RequestMapping("getMycourses")
