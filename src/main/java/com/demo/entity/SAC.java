@@ -9,4 +9,7 @@ public class SAC {
     private Integer studentId;
 
     private Integer courseId;
+
+    private Float score;
+
 }

@@ -1,7 +1,7 @@
 package com.demo.controller;
 
 import com.demo.entity.Course;
-import com.demo.entity.Operation;
+import com.demo.entity.SAC;
 import com.demo.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,8 +41,8 @@ public class TestBootController {
 
     @RequestMapping("getIndex")
     public String getUser(ModelMap map) {
-        List<Operation> operationList = operationService.getAllOperation();
-        System.out.println(operationList.get(0).getTeacher().getName());
+        List<SAC> sacList = sacService.findAll();
+
         return "index";
     }
 

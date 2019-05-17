@@ -2,6 +2,8 @@ package com.demo.mapper;
 
 import com.demo.entity.SAC;
 
+import java.util.List;
+
 public interface SACMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -14,4 +16,6 @@ public interface SACMapper {
     int updateByPrimaryKeySelective(SAC record);
 
     int updateByPrimaryKey(SAC record);
+
+    List<SAC> selectAll();
 }
