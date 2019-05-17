@@ -1,8 +1,7 @@
 package com.demo.controller;
 
 import com.demo.entity.Course;
-import com.demo.entity.Student;
-import com.demo.entity.Team;
+import com.demo.entity.Operation;
 import com.demo.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,9 +41,8 @@ public class TestBootController {
 
     @RequestMapping("getIndex")
     public String getUser(ModelMap map) {
-        List<Student> studentList = studentService.getAllStudent();
-        List<Course> courseList = courseService.getAllCourse();
-        System.out.println("index");
+        List<Operation> operationList = operationService.getAllOperation();
+        System.out.println(operationList.get(0).getTeacher().getName());
         return "index";
     }
 
@@ -83,15 +81,6 @@ public class TestBootController {
         List<Course> courseList = courseService.getAllCourse();
         map.addAttribute("courseList", courseList);
         return "Mycourses";
-    }
-
-    @RequestMapping("getMyPanel")
-    public String getMyPanel(ModelMap map) {
-        List<Team> teamList = teamService.getAllTeam();
-        List<Student> studentList = studentService.getAllStudent();
-        map.addAttribute("teamList", teamList);
-        map.addAttribute("studentList", studentList);
-        return "MyPanel";
     }
 
     @RequestMapping("getGrouping")
