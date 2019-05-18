@@ -30,6 +30,12 @@
         from course c
         left join teacher t on t.id=c.teacher_id
     </select>
+    <!--根据课程id查询教师id-->
+    <select id="selectTidByKey" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select teacher_id
+        from course
+        where id=#{id,jdbcType=INTEGER}
+    </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from course
     where id = #{id,jdbcType=INTEGER}

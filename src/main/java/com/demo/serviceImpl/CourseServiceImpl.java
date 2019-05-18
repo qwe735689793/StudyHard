@@ -42,4 +42,10 @@ public class CourseServiceImpl implements CourseService {
         return courseMapper.updateByPrimaryKeySelective(course);
     }
 
+    @Override
+    /*根据课程id查询教师id*/
+    public Integer getTidById(Integer course_id) {
+        return courseMapper.selectTidByKey(course_id);
+    }
+
 }

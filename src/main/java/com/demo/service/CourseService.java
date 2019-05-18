@@ -17,4 +17,7 @@ public interface CourseService {
 
     /*更新一个课程*/
     int updateCourse(Course course);
+
+    /*根据课程id查询教师id*/
+    Integer getTidById(Integer course_id);
 }

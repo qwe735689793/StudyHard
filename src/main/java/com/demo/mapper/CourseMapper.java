@@ -19,4 +19,7 @@ public interface CourseMapper {
 
     /*查询所有课程*/
     List<Course> selectAllCourse();
+
+    /*根据课程id查询教师id*/
+    Integer selectTidByKey(Integer id);
 }

@@ -19,4 +19,7 @@ public interface TeamMapper {
 
     /*获取所有团队对象*/
     List<Team> selectAllTeam();
+
+    /*根据教师id获取团队*/
+    List<Team> selectTeamListByTid(Integer tid);
 }

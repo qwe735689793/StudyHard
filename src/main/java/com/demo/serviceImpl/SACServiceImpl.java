@@ -1,6 +1,7 @@
 package com.demo.serviceImpl;
 
 import com.demo.entity.SAC;
+import com.demo.entity.Score;
 import com.demo.mapper.SACMapper;
 import com.demo.service.SACService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,8 +33,14 @@ public class SACServiceImpl implements SACService {
     }
 
     @Override
-    /*根据课程id查询并按成绩排名*/
-    public List<SAC> findAllOrderByScore(Integer course_id) {
-        return sacMapper.selectAllOrderByScore(course_id);
+    /*根据课程id查询团队成绩并按成绩排名*/
+    public List<Score> findTeamScoreByCid(Integer course_id) {
+        return sacMapper.selectTeamScoreByCid(course_id);
+    }
+
+    @Override
+    /*根据课程id查询学生成绩并按成绩排名*/
+    public List<Score> findStudentScoreByCid(Integer course_id) {
+        return sacMapper.selectStudentScoreByCid(course_id);
     }
 }

@@ -1,17 +1,13 @@
 package com.demo.controller;
 
-import com.demo.entity.SAC;
 import com.demo.entity.Score;
-import com.demo.entity.Team;
 import com.demo.service.SACService;
 import com.demo.service.StudentService;
-import com.demo.service.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,8 +18,6 @@ import java.util.List;
 @RequestMapping("/")
 public class ClassesController {
     @Autowired
-    private TeamService teamService;
-    @Autowired
     private StudentService studentService;
     @Autowired
     private SACService sacService;
@@ -33,23 +27,13 @@ public class ClassesController {
      */
     @RequestMapping("/getMyPanel")
     public String getMyPanel(ModelMap map) {
-        List<Team> teamList = teamService.getAllTeam();
+        Integer course_id = 1;
 
-        List<SAC> sacList = sacService.findAllOrderByScore(1);
-        /*个人成绩排名*/
-        ArrayList<Score> stuList = new ArrayList<>();
-        for (int i = 0; i < sacList.size(); i++) {
-            Score score = new Score();
-            SAC sac = sacList.get(i);
-            Integer sid = sac.getStudentId();
-            String name = studentService.getNameById(sid);
-            score.setId(sid);
-            score.setScore(sac.getScore());
-            score.setName(name);
-            stuList.add(score);
-        }
-        /*团队成绩排名*/
-        /*        ArrayList<Score> teamList = new ArrayList<>();*/
+        /*根据课程id查询学生成绩并按成绩排名*/
+        List<Score> stuList = sacService.findStudentScoreByCid(course_id);
+
+        /*根据课程id查询团队成绩并按成绩排名*/
+        List<Score> teamList = sacService.findTeamScoreByCid(course_id);
 
         map.addAttribute("teamList", teamList);
         map.addAttribute("stuList", stuList);

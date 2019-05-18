@@ -20,11 +20,23 @@
   <select id="selectAll" resultMap="BaseResultMap">
     select * from sac
   </select>
-  <!--根据课程id查询并按成绩排名-->
-  <select id="selectAllOrderByScore" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select * from sac
-    where course_id=#{course_id,jdbcType=INTEGER}
-    order by score
+  <!--根据课程id查询团队成绩并按成绩排名-->
+  <select id="selectTeamScoreByCid" parameterType="java.lang.Integer" resultType="com.demo.entity.Score">
+    select team_id 'id',team.name 'name',sum(score) 'score'
+    from sac
+    left join student on sac.student_id=student.id
+    left join team on team.id=student.team_id
+    where sac.course_id=#{course_id,jdbcType=INTEGER}
+    GROUP BY team_id
+    ORDER BY score DESC
+  </select>
+  <!--根据课程id查询学生成绩并按成绩排名-->
+  <select id="selectStudentScoreByCid" parameterType="java.lang.Integer" resultType="com.demo.entity.Score">
+    select student_id 'id',student.name 'name',score
+    from sac
+    left join student on sac.student_id=student.id
+    where sac.course_id=#{course_id,jdbcType=INTEGER}
+    ORDER BY score DESC
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from sac

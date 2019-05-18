@@ -18,4 +18,7 @@ public interface TeamService {
 
     /*增加一个团队*/
     int addTeam(Team team);
+
+    /*根据教师id获取团队*/
+    List<Team> findAllTeamByTid(Integer teacher_id);
 }

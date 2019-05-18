@@ -22,9 +22,9 @@
             <table class="table table-striped no-footer table-sm">
                 <tbody>
                 <tr th:each="team,teamStat:${teamList}">
-                    <td th:text="${team.getId()}">1</td>
-                    <td th:text="${team.getName()}">XXXX</td>
-                    <td>0.00</td>
+                    <td th:text="${team.id}">1</td>
+                    <td th:text="${team.name}">XXXX</td>
+                    <td th:text="${team.score}">0.00</td>
                 </tr>
                 </tbody>
             </table>
@@ -34,9 +34,9 @@
             <table class="table table-striped no-footer table-sm">
                 <tbody>
                 <tr th:each="stu,state:${stuList}">
-                    <td th:text="${stu.getId()}">1</td>
-                    <td th:text="${stu.getName()}">XXXX</td>
-                    <td th:text="${stu.getScore()}">0.00</td>
+                    <td th:text="${stu.id}">1</td>
+                    <td th:text="${stu.name}">XXXX</td>
+                    <td th:text="${stu.score}">0.00</td>
                 </tr>
                 </tbody>
             </table>

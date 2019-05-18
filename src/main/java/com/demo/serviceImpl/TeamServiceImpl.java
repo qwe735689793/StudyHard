@@ -38,4 +38,10 @@ public class TeamServiceImpl implements TeamService {
     public int addTeam(Team team) {
         return teamMapper.insertSelective(team);
     }
+
+    @Override
+    /*根据教师id获取团队*/
+    public List<Team> findAllTeamByTid(Integer teacher_id) {
+        return teamMapper.selectTeamListByTid(teacher_id);
+    }
 }

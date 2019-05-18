@@ -6,20 +6,38 @@
     <result column="code" jdbcType="VARCHAR" property="code"/>
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="teacher_id" jdbcType="INTEGER" property="teacherId"/>
+    <association property="teacher" javaType="com.demo.entity.Teacher">
+      <id column="t_id" jdbcType="INTEGER" property="id"/>
+      <result column="t_code" jdbcType="VARCHAR" property="code"/>
+      <result column="t_name" jdbcType="VARCHAR" property="name"/>
+      <result column="t_account_id" jdbcType="INTEGER" property="accountId"/>
+    </association>
   </resultMap>
   <sql id="Base_Column_List">
     id, code, name, teacher_id
   </sql>
+  <!--根据团队id查询-->
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
+    select team.*,
+    t.id 't_id',t.code 't_code',t.name 't_name',t.account_id 't_account_id'
     from team
-    where id = #{id,jdbcType=INTEGER}
+    left join teacher t on t.id=team.teacher_id
+    where team.id = #{id,jdbcType=INTEGER}
   </select>
+  <!--查询所有团队-->
   <select id="selectAllTeam" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List"/>
+    select team.*,
+    t.id 't_id',t.code 't_code',t.name 't_name',t.account_id 't_account_id'
     from team
+    left join teacher t on t.id=team.teacher_id
+  </select>
+  <!--根据教师id获取团队-->
+  <select id="selectTeamListByTid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select team.*,
+    t.id 't_id',t.code 't_code',t.name 't_name',t.account_id 't_account_id'
+    from team
+    left join teacher t on t.id=team.teacher_id
+    where team.teacher_id=#{tid,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from team
