@@ -10,15 +10,16 @@
 </head>
 <body>
 <div class="container">
-    <form>
+    <form action="#">
         <div class="form-group has-feedback">
             <label for="username">用户名</label>
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-username"><i class="fa fa-lg fa-user"></i></span>
                 </div>
-                <input class="form-control" id="username" maxlength="10" placeholder="请输入用户名" type="text"
-                       aria-describedby="basic-username">
+                <input aria-describedby="basic-username" class="form-control" id="username" maxlength="10"
+                       placeholder="请输入用户名"
+                       required="required" type="text"/>
             </div>
         </div>
 
@@ -29,7 +30,7 @@
                     <span class="input-group-text" id="basic-password"><i class="fa fa-lg fa-lock"></i></span>
                 </div>
                 <input class="form-control" id="password" maxlength="10" placeholder="请输入密码" type="password"
-                       aria-describedby="basic-password">
+                       aria-describedby="basic-password" required="required"/>
             </div>
         </div>
 
@@ -40,7 +41,7 @@
                     <span class="input-group-text" id="basic-re-password"><i class="fa fa-lg fa-lock"></i></span>
                 </div>
                 <input class="form-control" id="passwordConfirm" maxlength="10" placeholder="请再次输入密码" type="password"
-                       aria-describedby="basic-re-password">
+                       aria-describedby="basic-re-password" required="required"/>
             </div>
         </div>
 
@@ -60,19 +61,40 @@
         };
         $.ajax({
             type:'POST',
-            url:'/checkUserName',
+            url: '/checkRegister',
             contentType:'application/json',
             data: JSON.stringify(params),
             success:function (result) {
-                alert('success').class("bg-danger");
+                alert('success');
             },
             error:function () {
                 alert('error');
             }
         })
     })
-
-
+    /*判断用户名是否存在*/
+    $('#username').blur(function () {
+        var username = $('#username').val();
+        if (username.length > 0) {
+            $.ajax({
+                type: "POST",
+                url: "/checkUserName",
+                data: JSON.stringify({name: username}),
+                contentType: "application/json",
+                success: function (resultDate) {
+                    console.log('register successful!');
+                    if (resultDate === "false") {
+                        alert('username is exist!');
+                    } else {
+                        alert('username is ok!');
+                    }
+                },
+                error: function () {
+                    console.log('register error!');
+                }
+            });
+        }
+    })
 </script>
 
 </body>

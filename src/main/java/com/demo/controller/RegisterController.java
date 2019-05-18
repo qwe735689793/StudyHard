@@ -1,5 +1,6 @@
 package com.demo.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.demo.entity.Account;
 import com.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import java.util.Map;
  * @create 2019/4/12
  */
 @Controller
+@RequestMapping("/")
 public class RegisterController {
     @Autowired
     private UserService userService;
@@ -29,20 +31,19 @@ public class RegisterController {
         Account newUser = new Account();
         newUser.setName(map.get("username").toString());
         newUser.setPassword(map.get("password").toString());
-        System.out.println(newUser.getName() + ":" + newUser.getPassword());
         return newUser;
     }
 
     /**
      * 重复用户名验证
      */
-    @RequestMapping("/checkUserName")
+    @PostMapping("/checkUserName")
     @ResponseBody
-    public String checkUserName(@RequestBody Map<String, Object> map) {
+    public String checkUserName(@RequestBody JSONObject jsonObject) {
         String flag = "true";
         Account newUser = new Account();
 
-        newUser.setName(map.get("username").toString());
+        newUser.setName(jsonObject.get("name").toString());
 
         Account oldUser = userService.getUserByName(newUser.getName());
         if (oldUser != null) {
