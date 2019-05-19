@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -60,27 +60,32 @@
             </tr>
             </thead>
             <tbody class="w-100" id="Task">
-            <tr class="row m-0 p-0 text-center">
-                <th class="col-sm-1 m-0 p-0" style="line-height: 45px">
-                    1
-                </th>
-                <td class="col-sm-5">
-                    <div>
-                        <input type="file">
-                    </div>
-                </td>
-                <td class="col-sm-5">
-                    <div>
+            <form enctype="multipart/form-data" method="post" th:action="@{/fileUpload}">
+                <tr class="row m-0 p-0 text-center">
+                    <th class="col-sm-1 m-0 p-0" style="line-height: 45px">
+                        1
+                    </th>
+                    <td class="col-sm-5">
+                        <div>
+                            <input name="file" type="file">
+                        </div>
+                    </td>
+                    <td class="col-sm-5">
+                        <div>
                             <textarea class="form-control" name="note" placeholder="" rows="1">
                             </textarea>
-                    </div>
-                </td>
-                <td class="col-sm-1  m-0 p-0" style="line-height: 45px">
-                    <a class="text-info" id="" onclick="del(this)">
-                        删除
-                    </a>
-                </td>
-            </tr>
+                        </div>
+                    </td>
+                    <td class="col-sm-1  m-0 p-0" style="line-height: 45px">
+                        <a class="text-info" id="" onclick="del(this)">
+                            删除
+                        </a>
+                    </td>
+                    <td>
+                        <button class="ml-3 btn btn-success" type="submit">上传</button>
+                    </td>
+                </tr>
+            </form>
             </tbody>
         </table>
     </div>

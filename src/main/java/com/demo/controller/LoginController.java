@@ -8,6 +8,7 @@ import com.demo.service.TeacherService;
 import com.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -31,6 +32,17 @@ public class LoginController {
     private StudentService studentService;
     @Autowired
     private TeacherService teacherService;
+
+    /**
+     * 跳转到登录界面
+     *
+     * @param map
+     * @return
+     */
+    @RequestMapping("getLogin")
+    public String getLogin(ModelMap map) {
+        return "Login";
+    }
 
     /**
      * 登录账户验证

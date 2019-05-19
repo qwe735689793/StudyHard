@@ -5,6 +5,7 @@ import com.demo.entity.Account;
 import com.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,14 @@ import java.util.Map;
 public class RegisterController {
     @Autowired
     private UserService userService;
+
+    /**
+     * 跳转到注册界面
+     */
+    @RequestMapping("getRegister")
+    public String getRegister(ModelMap map) {
+        return "Register";
+    }
 
     /**
      * 新增注册用户

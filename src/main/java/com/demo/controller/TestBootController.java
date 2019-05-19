@@ -46,15 +46,6 @@ public class TestBootController {
         return "index";
     }
 
-    @RequestMapping("getLogin")
-    public String getLogin(ModelMap map) {
-        return "Login";
-    }
-
-    @RequestMapping("getRegister")
-    public String getRegister(ModelMap map) {
-        return "Register";
-    }
 
     @RequestMapping("getHome")
     public String getHome(ModelMap map) {
@@ -88,8 +79,5 @@ public class TestBootController {
         return "Grouping";
     }
 
-    @RequestMapping("getMyTask")
-    public String getMyTask(ModelMap map) {
-        return "MyTask";
-    }
+
 }
