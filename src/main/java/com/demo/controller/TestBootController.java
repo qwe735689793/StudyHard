@@ -76,6 +76,7 @@ public class TestBootController {
 
     @RequestMapping("getGrouping")
     public String getGrouping(ModelMap map) {
+
         return "Grouping";
     }
 
