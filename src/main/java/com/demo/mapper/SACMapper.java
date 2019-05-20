@@ -1,6 +1,5 @@
 package com.demo.mapper;
 
-import com.demo.entity.Course;
 import com.demo.entity.SAC;
 import com.demo.entity.Score;
 
@@ -27,8 +26,5 @@ public interface SACMapper {
 
     /*根据课程id查询学生成绩并按成绩排名*/
     List<Score> selectStudentScoreByCid(Integer course_id);
-
-    /*根据学生id查询学生所有的课程*/
-    List<Course> selectStudentCourse(Integer Student_id);
 
 }
