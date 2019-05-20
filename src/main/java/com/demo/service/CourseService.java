@@ -20,4 +20,7 @@ public interface CourseService {
 
     /*根据课程id查询教师id*/
     Integer getTidById(Integer course_id);
+
+    /*根据学生id查询学生所有的课程*/
+    List<Course> findCourseBySid(Integer Student_id);
 }

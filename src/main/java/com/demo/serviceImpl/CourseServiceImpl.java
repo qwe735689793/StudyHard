@@ -48,4 +48,9 @@ public class CourseServiceImpl implements CourseService {
         return courseMapper.selectTidByKey(course_id);
     }
 
+    @Override
+    /*根据学生id查询学生所有的课程*/
+    public List<Course> findCourseBySid(Integer Student_id) {
+        return courseMapper.selectCourseBySid(Student_id);
+    }
 }

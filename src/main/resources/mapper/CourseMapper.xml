@@ -30,6 +30,15 @@
         from course c
         left join teacher t on t.id=c.teacher_id
     </select>
+    <!--根据学生id查询学生已选课程-->
+    <select id="selectCourseBySid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select c.*,t.id 't_id',t.code 't_code',t.name 't_name',t.account_id 't_account_id'
+    from course c
+    left join sac on sac.course_id=c.id
+    left join teacher t on t.id=c.teacher_id
+    where sac.Student_id=#{Student_id,jdbcType=INTEGER}
+    ORDER BY course_id
+  </select>
     <!--根据课程id查询教师id-->
     <select id="selectTidByKey" parameterType="java.lang.Integer" resultType="java.lang.Integer">
         select teacher_id

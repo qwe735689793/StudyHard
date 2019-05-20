@@ -22,7 +22,7 @@
   </select>
   <!--根据课程id查询团队成绩并按成绩排名-->
   <select id="selectTeamScoreByCid" parameterType="java.lang.Integer" resultType="com.demo.entity.Score">
-    select team_id 'id',team.name 'name',sum(score) 'score'
+    select team_id 'id',team.name 'name',sum(score)/count(student.team_id) 'score'
     from sac
     left join student on sac.student_id=student.id
     left join team on team.id=student.team_id
