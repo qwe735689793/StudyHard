@@ -12,7 +12,17 @@
 <div class="container-fluid">
     <div class="row m-3">
         <!--课程选择区域-->
-        <div class="col-sm-2">课程选择区域还没写</div>
+        <div class="col-sm-2">
+            <form>
+                <div class="radio" th:each="course,courseStat:${courseList}">
+                    <label>
+                        <input name="optradio" th:id="radio+(${courseStat.count})" th:text="${course.getName()}"
+                               th:value="${course.getName()}" type="radio">
+                    </label>
+                </div>
+            </form>
+            <button class="btn btn-success" onclick="test()" type="button">测试</button>
+        </div>
         <!--echarts图表嵌入-->
         <div class="col-sm-6" id="main" style="height: 400px;">
         </div>
@@ -22,9 +32,9 @@
             <table class="table table-striped no-footer table-sm">
                 <tbody>
                 <tr th:each="team,teamStat:${teamList}">
-                    <td th:text="${team.id}">1</td>
-                    <td th:text="${team.name}">XXXX</td>
-                    <td th:text="${team.score}">0.00</td>
+                    <td th:text="${teamStat.count}"></td>
+                    <td th:text="${team.name}"></td>
+                    <td th:text="${team.score}"></td>
                 </tr>
                 </tbody>
             </table>
@@ -34,9 +44,9 @@
             <table class="table table-striped no-footer table-sm">
                 <tbody>
                 <tr th:each="stu,state:${stuList}">
-                    <td th:text="${stu.id}">1</td>
-                    <td th:text="${stu.name}">XXXX</td>
-                    <td th:text="${stu.score}">0.00</td>
+                    <td th:text="${state.count}"></td>
+                    <td th:text="${stu.name}"></td>
+                    <td th:text="${stu.score}"></td>
                 </tr>
                 </tbody>
             </table>
@@ -50,15 +60,48 @@
 <script src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 <script>
-    window.onresize = function () {
-        // alert("2222");
+    function gradation(List) {
+        var number = new Array();
+        /*数组初始化*/
+        for (var i = 0; i < 5; i++) {
+            number[i] = 0;
+        }
+        /*统计成绩分布*/
+        for (var i = 0; i < List.length; i++) {
+            if (List[i].score < 60 && List[i].score >= 0) {
+                number[0]++;
+            } else if (List[i].score < 70) {
+                number[1]++;
+            } else if (List[i].score < 80) {
+                number[2]++;
+            } else if (List[i].score < 90) {
+                number[3]++;
+            } else if (List[i].score <= 100) {
+                number[4]++;
+            }
+        }
+        return number;
     }
+
+    $('input:radio[name="optradio"]').click(function () {
+        var checkValue = $('input:radio[name="optradio"]:checked').val();
+        alert(checkValue);
+    });
+    // $(window).resize(function() { //当浏览器大小变化时
+    //     alert("页面窗口发生变化");
+    //     EchartsDisplay();
+    // });
 </script>
-<script type="text/javascript">
+<script th:inline="javascript" type="text/javascript">
+
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('main'));
-
     // 指定图表的配置项和数据
+    var stuList = [[${stuList}]];
+    var teamList = [[${teamList}]];
+    var numberStu = gradation(stuList);
+    var numberTeam = gradation(teamList);
+    /*统计成绩分布*/
     var option = {
         title: {
             text: 'XX班成绩报表',
@@ -96,7 +139,7 @@
             {
                 name: '团队成绩-分布数',
                 type: 'bar',
-                data: [5.0, 7.0, 8.0, 10, 12],
+                data: numberTeam,
                 markPoint: {
                     data: [
                         {type: 'max', name: '最大值'},
@@ -107,7 +150,7 @@
             {
                 name: '个人成绩-分布数',
                 type: 'bar',
-                data: [12, 8, 10, 10, 5],
+                data: numberStu,
                 markPoint: {
                     data: [
                         {type: 'max', name: '最大值'},
@@ -117,7 +160,6 @@
             }
         ]
     };
-
 
     // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);

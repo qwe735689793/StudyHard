@@ -1,5 +1,6 @@
 package com.demo.serviceImpl;
 
+import com.demo.entity.Course;
 import com.demo.entity.SAC;
 import com.demo.entity.Score;
 import com.demo.mapper.SACMapper;
@@ -42,5 +43,10 @@ public class SACServiceImpl implements SACService {
     /*根据课程id查询学生成绩并按成绩排名*/
     public List<Score> findStudentScoreByCid(Integer course_id) {
         return sacMapper.selectStudentScoreByCid(course_id);
+    }
+
+    /*根据学生id查询学生所有的课程*/
+    public List<Course> findStudentCourse(Integer Student_id) {
+        return sacMapper.selectStudentCourse(Student_id);
     }
 }

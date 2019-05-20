@@ -38,6 +38,14 @@
     where sac.course_id=#{course_id,jdbcType=INTEGER}
     ORDER BY score DESC
   </select>
+  <!--根据学生id查询学生已选课程-->
+  <select id="selectStudentCourse" parameterType="java.lang.Integer" resultType="com.demo.entity.Course">
+    select course_id 'id',name
+    from sac
+    left join course on sac.course_id=course.id
+    where sac.Student_id=#{Student_id,jdbcType=INTEGER}
+    ORDER BY course_id ASC
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from sac
     where id = #{id,jdbcType=INTEGER}
