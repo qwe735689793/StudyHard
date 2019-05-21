@@ -22,7 +22,7 @@
   </select>
   <!--根据课程id查询团队成绩并按成绩排名-->
   <select id="selectTeamScoreByCid" parameterType="java.lang.Integer" resultType="com.demo.entity.Score">
-    select team_id 'id',team.name 'name',sum(score) 'score'
+    select team_id 'id',team.name 'name',sum(score)/count(student.team_id) 'score'
     from sac
     left join student on sac.student_id=student.id
     left join team on team.id=student.team_id
@@ -37,14 +37,6 @@
     left join student on sac.student_id=student.id
     where sac.course_id=#{course_id,jdbcType=INTEGER}
     ORDER BY score DESC
-  </select>
-  <!--根据学生id查询学生已选课程-->
-  <select id="selectStudentCourse" parameterType="java.lang.Integer" resultType="com.demo.entity.Course">
-    select course_id 'id',name
-    from sac
-    left join course on sac.course_id=course.id
-    where sac.Student_id=#{Student_id,jdbcType=INTEGER}
-    ORDER BY course_id ASC
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from sac

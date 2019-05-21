@@ -17,7 +17,7 @@
                 <div class="radio" th:each="course,courseStat:${courseList}">
                     <label>
                         <input name="optradio" th:id="radio+(${courseStat.count})" th:text="${course.getName()}"
-                               th:value="${course.getName()}" type="radio">
+                               th:value="${course.getId()}" type="radio">
                     </label>
                 </div>
             </form>
@@ -84,8 +84,27 @@
     }
 
     $('input:radio[name="optradio"]').click(function () {
-        var checkValue = $('input:radio[name="optradio"]:checked').val();
-        alert(checkValue);
+        var radios = document.getElementsByName("optradio");
+        var checkValue;
+        for (var i = 0; i < radios.length; i++) {
+            if (radios[i].checked) {
+                checkValue = radios[i].value;
+            }
+        }
+        var cid = {
+            "course_id": checkValue
+        }
+        $.ajax({
+            type: "POST",
+            url: "/getMyPanel",
+            data: cid,
+            success: function () {
+                console.log("success");
+            },
+            error: function () {
+                console.log("error");
+            }
+        })
     });
     // $(window).resize(function() { //当浏览器大小变化时
     //     alert("页面窗口发生变化");
