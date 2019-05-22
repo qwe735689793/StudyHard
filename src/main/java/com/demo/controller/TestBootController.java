@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -76,15 +77,14 @@ public class TestBootController {
     }
 
     @RequestMapping("getGrouping")
-    public String getGrouping(ModelMap map) {
-        int classes_id = 2, team_number = 2;
+    public String getGrouping(ModelMap map, HttpServletRequest request) {
+        Student student1 = (Student) request.getSession().getAttribute("user");
+        int classes_id = student1.getClassesId();
         List<Student> team = studentService.findteam(classes_id);
         List<Student> studentsList = studentService.findStudent(classes_id);
         map.addAttribute("team", team);
         map.addAttribute("studentsList", studentsList);
-        System.out.println();
-        System.out.println();
-        System.out.println(studentsList);
+        System.out.println(student1.getClassesId());
         return "Grouping";
     }
 
