@@ -2,6 +2,7 @@ package com.demo.controller;
 
 import com.demo.entity.Course;
 import com.demo.entity.SAC;
+import com.demo.entity.Student;
 import com.demo.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -76,7 +77,14 @@ public class TestBootController {
 
     @RequestMapping("getGrouping")
     public String getGrouping(ModelMap map) {
-
+        int classes_id = 2, team_number = 2;
+        List<Student> team = studentService.findteam(classes_id);
+        List<Student> studentsList = studentService.findStudent(classes_id);
+        map.addAttribute("team", team);
+        map.addAttribute("studentsList", studentsList);
+        System.out.println();
+        System.out.println();
+        System.out.println(studentsList);
         return "Grouping";
     }
 

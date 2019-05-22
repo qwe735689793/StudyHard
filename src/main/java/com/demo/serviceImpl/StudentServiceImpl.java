@@ -51,4 +51,13 @@ public class StudentServiceImpl implements StudentService {
         return studentMapper.selectStudentNameById(id);
     }
 
+    /*根据班级id查询团队*/
+    public List<Student> findteam(Integer classes_id) {
+        return studentMapper.findteam(classes_id);
+    }
+
+    /*根据班级id查询学生*/
+    public List<Student> findStudent(Integer classes_id) {
+        return studentMapper.findStudent(classes_id);
+    }
 }

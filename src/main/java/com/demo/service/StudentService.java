@@ -23,4 +23,11 @@ public interface StudentService {
 
     /*根据学生id查询学生姓名*/
     String getNameById(Integer id);
+
+    /*根据班级id查询团队*/
+    List<Student> findteam(Integer classes_id);
+
+    /*根据班级id查询学生*/
+    List<Student> findStudent(Integer classes_id);
+
 }

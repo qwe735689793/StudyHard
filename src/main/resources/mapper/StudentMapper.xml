@@ -56,6 +56,22 @@
     select name from student
     where id=#{id,jdbcType=INTEGER}
   </select>
+  <!--根据课程id查询学生-->
+  <select id="findteam" parameterType="java.lang.Integer" resultType="com.demo.entity.Student">
+    select distinct team_id 'teamId',team.name 'team.name'
+    from student
+    left join team on team.id=student.team_id
+    where student.classes_id=#{classes_id,jdbcType=INTEGER}
+  </select>
+  <!--根据课程id查询学生-->
+  <select id="findStudent" parameterType="java.lang.Integer" resultType="com.demo.entity.Student">
+    select student.code 'code',student.name 'name',team_id 'teamId',classes_id 'classesId',account.status 'account.status'
+    from student
+    left join team on team.id=student.team_id
+    left join account on account.id=student.account_id
+    where student.classes_id=#{classes_id,jdbcType=INTEGER}
+    ORDER BY account.status ASC
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from student
     where id = #{id,jdbcType=INTEGER}
