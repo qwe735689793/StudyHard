@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>课程信息</title>
+    <link href="webjars/bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet"/>
+    <link href="webjars/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet"/>
+    <link charset="utf-8" href="css/style.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="container-fluid m-4">
+    <div class="col-center-block">
+        <div class="col-8 m-auto">
+            <form class="form-horizontal " role="form">
+                <div class=" form-group row">
+                    <label class="col-sm-2 control-label">课程代码<span class="required">*</span>
+                    </label>
+                    <div class="col-sm-6">
+                        <input autocomplete="off" class="form-control" th:value="${courses.getCode()}" type="text">
+                    </div>
+                </div>
+                <div class="form-group row ">
+                    <label class="col-sm-2 control-label">课程名称
+                    </label>
+                    <div class="col-sm-6">
+                        <input class="form-control" th:value="${courses.getName()}" type="text">
+                    </div>
+                </div>
+                <div class="form-group row ">
+                    <label class="col-sm-2 control-label">授课老师
+                    </label>
+                    <div class="col-sm-6">
+                        <input class="form-control" th:value="${courses.getTeacher().getName()}" type="text">
+                    </div>
+                </div>
+                <div class="form-group row ">
+                    <label class="col-sm-2 control-label">开始授课时间
+                    </label>
+                    <div class="col-sm-6">
+                        <input class="form-control" th:value="${courses.getStart()}" type="text">
+                    </div>
+                </div>
+                <div class="form-group row ">
+                    <label class="col-sm-2 control-label">结束授课时间
+                    </label>
+                    <div class="col-sm-6">
+                        <input class="form-control" th:value="${courses.getEnd()}" type="text">
+                    </div>
+                </div>
+                <div class="form-group row ">
+                    <label class="col-sm-2 control-label">所属学院
+                    </label>
+                    <div class="col-sm-6">
+                        <input class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="form-group row ">
+                    <label class="col-sm-2 control-label">所属专业
+                    </label>
+                    <div class="col-sm-6">
+                        <input class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="form-group row ">
+                    <label class="col-sm-2 control-label">学年
+                    </label>
+                    <div class="col-sm-6">
+                        <input class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="form-group row ">
+                    <label class="col-sm-2 control-label">学期
+                    </label>
+                    <div class="col-sm-6">
+                        <input class="form-control" type="text">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+<script src="webjars/jquery/3.3.1-2/jquery.min.js"></script>
+<script src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

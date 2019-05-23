@@ -18,11 +18,12 @@
     <sql id="Base_Column_List">
     id, code, name, start, end, teacher_id
   </sql>
-    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultType="com.demo.entity.Course">
+        select course.id 'id',course.code 'code',course.name 'name',course.start 'start',
+        course.end 'end',course.teacher_id 'teacherId',teacher.name 'teacher.name'
         from course
-        where id = #{id,jdbcType=INTEGER}
+        left join teacher on teacher.id=course.teacher_id
+        where course.id = #{id,jdbcType=INTEGER}
     </select>
     <!--查询所有课程-->
     <select id="selectAllCourse" resultMap="BaseResultMap">

@@ -57,6 +57,11 @@ public class ClassesController {
         map.addAttribute("teamList", teamList);
         map.addAttribute("stuList", stuList);
         map.addAttribute("courseList", coursesList);
+        System.out.println(teamList);
+        System.out.println();
+        System.out.println(stuList);
+        System.out.println();
+        System.out.println(coursesList);
         return "MyPanel";
     }
 }

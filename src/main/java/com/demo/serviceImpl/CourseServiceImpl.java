@@ -21,7 +21,7 @@ public class CourseServiceImpl implements CourseService {
     @Override
     /*根据课程id获取课程*/
     public Course getCourseById(int id) {
-        return null;
+        return courseMapper.selectByPrimaryKey(id);
     }
 
     @Override

@@ -78,14 +78,24 @@ public class TestBootController {
 
     @RequestMapping("getGrouping")
     public String getGrouping(ModelMap map, HttpServletRequest request) {
-        Student student1 = (Student) request.getSession().getAttribute("user");
-        int classes_id = student1.getClassesId();
+        Student student = (Student) request.getSession().getAttribute("user");
+        int classes_id = student.getClassesId();
         List<Student> team = studentService.findteam(classes_id);
         List<Student> studentsList = studentService.findStudent(classes_id);
         map.addAttribute("team", team);
         map.addAttribute("studentsList", studentsList);
-        System.out.println(student1.getClassesId());
+        System.out.println(student.getClassesId());
         return "Grouping";
+    }
+
+    @RequestMapping("getcourseInfo")
+    public String getCourseInfor(ModelMap map, HttpServletRequest request) {
+        Student student = (Student) request.getSession().getAttribute("user");
+        System.out.println("------------------------------------------");
+        System.out.println(student);
+        Course courses = courseService.getCourseById(1);
+        map.addAttribute("courses", courses);
+        return "courseInfo";
     }
 
 }
